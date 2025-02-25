@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>取余公式/快速幂算法</title>
+      <link href="/2025/02/25/%E5%8F%96%E4%BD%99%E5%85%AC%E5%BC%8F-%E5%BF%AB%E9%80%9F%E5%B9%82%E7%AE%97%E6%B3%95/"/>
+      <url>/2025/02/25/%E5%8F%96%E4%BD%99%E5%85%AC%E5%BC%8F-%E5%BF%AB%E9%80%9F%E5%B9%82%E7%AE%97%E6%B3%95/</url>
+      
+        <content type="html"><![CDATA[<h2 id="取余公式"><a href="#取余公式" class="headerlink" title="取余公式"></a>取余公式</h2><pre><code>(a + b) % p = (a % p + b % p) % p(a - b) % p = (a % p - b % p ) % p(a * b) % p = (a % p * b % p) % p</code></pre><h2 id="快速幂"><a href="#快速幂" class="headerlink" title="快速幂"></a>快速幂</h2><p>利用倍增思想，当求解 a 的 b 次方时，代码如下</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include &lt;iostream&gt;</span></span><br><span class="line">using namespace std;</span><br><span class="line">using ll = long long;</span><br><span class="line">ll quik_pow(ll a, ll b)</span><br><span class="line">&#123;</span><br><span class="line">  //temp存放 a^1, a^2, a^3, a^4.......</span><br><span class="line">ll temp = a;</span><br><span class="line">ll ans = 1;</span><br><span class="line"><span class="keyword">while</span> (b)</span><br><span class="line">&#123;</span><br><span class="line">    //判断b的二进制的最后一位是否为1，是1就算入总结果</span><br><span class="line"><span class="keyword">if</span> (b &amp; 1) ans = ans * temp;</span><br><span class="line">    //随着b的二进制右移逐渐递变</span><br><span class="line">temp = temp * temp;</span><br><span class="line">    //b的二进制右移（舍弃最后一位</span><br><span class="line">b &gt;&gt;= 1;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line">int <span class="function"><span class="title">main</span></span>()</span><br><span class="line">&#123;</span><br><span class="line">ll a, b;</span><br><span class="line">  //输入a, b,求解a的b次方</span><br><span class="line">cin &gt;&gt; a &gt;&gt; b;</span><br><span class="line">ll ans = quik_pow(a, b);</span><br><span class="line">cout &lt;&lt; <span class="string">ans &lt;&lt; endl;</span></span><br><span class="line"><span class="string">return 0;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure><h2 id="模板题-1，这题考察快速幂结合取余公式-https-ac-nowcoder-com-acm-problem-226804"><a href="#模板题-1，这题考察快速幂结合取余公式-https-ac-nowcoder-com-acm-problem-226804" class="headerlink" title="[模板题 1，这题考察快速幂结合取余公式]{https://ac.nowcoder.com/acm/problem/226804}"></a>[模板题 1，这题考察快速幂结合取余公式]{<a href="https://ac.nowcoder.com/acm/problem/226804%7D">https://ac.nowcoder.com/acm/problem/226804}</a></h2><h2 id="模板题-2，这题要仿造快速幂，写出慢速积-https-ac-nowcoder-com-acm-contest-21763-U"><a href="#模板题-2，这题要仿造快速幂，写出慢速积-https-ac-nowcoder-com-acm-contest-21763-U" class="headerlink" title="[模板题 2，这题要仿造快速幂，写出慢速积]{https://ac.nowcoder.com/acm/contest/21763/U}"></a>[模板题 2，这题要仿造快速幂，写出慢速积]{<a href="https://ac.nowcoder.com/acm/contest/21763/U%7D">https://ac.nowcoder.com/acm/contest/21763/U}</a></h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 快速幂 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>二叉树的遍历</title>
       <link href="/2025/02/23/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/"/>
       <url>/2025/02/23/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/</url>
