@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>栈/队列/双端</title>
+      <link href="/2025/03/04/%E6%A0%88-%E9%98%9F%E5%88%97-%E5%8F%8C%E7%AB%AF/"/>
+      <url>/2025/03/04/%E6%A0%88-%E9%98%9F%E5%88%97-%E5%8F%8C%E7%AB%AF/</url>
+      
+        <content type="html"><![CDATA[<h2 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h2><pre><code> 代码          含义 s.push(ele)   元素ele入栈增加元素 s.pop()       弹出栈顶元素 s.top()       s.top() == 栈顶元素 s.empty()     判断栈内是否为空，空为真 s.size()      返回栈内元素的个数</code></pre><h3 id="数组模拟栈的遍历"><a href="#数组模拟栈的遍历" class="headerlink" title="数组模拟栈的遍历"></a>数组模拟栈的遍历</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 栈 从左至右为栈底到栈顶</span></span><br><span class="line"><span class="type">int</span> s[<span class="number">100</span>];</span><br><span class="line"><span class="comment">// p 代表栈顶指针,初始栈内无元素，p为-1</span></span><br><span class="line"><span class="type">int</span> p = <span class="number">-1</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt;= <span class="number">11</span>; ++i) &#123;</span><br><span class="line"><span class="comment">//入栈</span></span><br><span class="line">s[++p] = i;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 出栈</span></span><br><span class="line"><span class="type">int</span> top_element = s[p--];</span><br></pre></td></tr></table></figure><h3 id="栈的应用"><a href="#栈的应用" class="headerlink" title="栈的应用"></a>栈的应用</h3><p>题目大意：有 n 个人从左到右排成一队，全部人向右看，每个人会被比自己高的人挡住，求出每个人是被哪个位置的人挡到。如果没有被挡住就输出 0。</p><p>思考：因为向右看，所以最右一个人一定是输出 0，从右向左考虑，如果一个人 a，a 的左边人如果比 a 高，那么 a 就失去挡住别人的能力，如果左边人比 a 矮，那么两人都可能有挡住别人的能力。</p><p>代码模板</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 栈s存答案， 栈x存有能力挡住别人的人</span></span><br><span class="line">stack&lt;<span class="type">int</span>&gt; s, x;</span><br><span class="line"><span class="comment">//倒序遍历（向右看</span></span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = n; i &gt;= <span class="number">1</span>; i--)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="comment">//a左边的人如果高，a就失去挡住别人的能力，出栈！</span></span><br><span class="line">  <span class="keyword">while</span> (!x.<span class="built_in">empty</span>() &amp;&amp; a[i] &gt;= a[x.<span class="built_in">top</span>()]) x.<span class="built_in">pop</span>();</span><br><span class="line">  <span class="comment">//全部弹出，栈内没有比他高的，则存入0</span></span><br><span class="line">  <span class="keyword">if</span> (x.<span class="built_in">empty</span>()) s.<span class="built_in">push</span>(<span class="number">0</span>);</span><br><span class="line">  <span class="comment">//此时就是a左边的人矮，则被a挡住，将a的位置存入答案栈a</span></span><br><span class="line">  <span class="keyword">else</span> s.<span class="built_in">push</span>(x.<span class="built_in">top</span>());</span><br><span class="line">  <span class="comment">//入栈</span></span><br><span class="line">  x.<span class="built_in">push</span>(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="例题-1-例题-2"><a href="#例题-1-例题-2" class="headerlink" title="例题 1 例题 2"></a><a href="https://ac.nowcoder.com/acm/problem/24840">例题 1</a> <a href="https://ac.nowcoder.com/acm/contest/22669/O">例题 2</a></h3><ul><li></li></ul><h2 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h2><pre><code> 代码          含义 q.push(ele)   队列尾部进入元素ele q.pop()       弹出队首元素 q.front()     q.front() == 队首元素 q.back()      q.back() == 队尾元素 q.empty()     判断队列是否为空，空为真 q.size()      返回队列元素的个数</code></pre><h3 id="队列应用"><a href="#队列应用" class="headerlink" title="队列应用"></a>队列应用</h3><p>问题大意：生长问题 或者 保质期问题 这类问题难点在于随着时间推移，队列所维护的所有元素会发生题目规律变化（可能是多久后过期，多久后长度增加量）</p><h4 id="思路一"><a href="#思路一" class="headerlink" title="思路一:"></a>思路一:</h4><p>将维护的变量设置为结构体一起维护，常规</p><h4 id="思路二："><a href="#思路二：" class="headerlink" title="思路二："></a>思路二：</h4><p>定义变量 delta，将所有变化对 delta 进行，再每次对队列元素操作时，先进行对应的 delta 处理，新元素存入时，扣除当前时间 delta 变化再存入（就是把新元素等价于旧元素经过时间后的变化）</p><h3 id="例题"><a href="#例题" class="headerlink" title="例题"></a><a href="https://ac.nowcoder.com/acm/contest/22669/J">例题</a></h3><ul><li></li></ul><h2 id="双端队列"><a href="#双端队列" class="headerlink" title="双端队列"></a>双端队列</h2><pre><code> 代码                               含义 push_back(ele) / push_front(ele)   把ele插入队尾 / 队首 back() / front()                   == 队尾 / 队首元素 pop_back() / pop_front()           删除队尾 / 队首元素 erase(iterator it)                 删除迭代器所指的元素 erase(ita, itb)                    删除迭代器a，b范围内元素（左闭右开 empty() size() clear()                            清空deque</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数据结构 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>周记1</title>
       <link href="/2025/03/03/%E5%91%A8%E8%AE%B01/"/>
       <url>/2025/03/03/%E5%91%A8%E8%AE%B01/</url>
@@ -368,31 +393,6 @@
     
     
     <entry>
-      <title>自动刷题刷课</title>
-      <link href="/2025/02/16/%E8%87%AA%E5%8A%A8%E5%88%B7%E9%A2%98%E5%88%B7%E8%AF%BE/"/>
-      <url>/2025/02/16/%E8%87%AA%E5%8A%A8%E5%88%B7%E9%A2%98%E5%88%B7%E8%AF%BE/</url>
-      
-        <content type="html"><![CDATA[<h2 id="如果你是解决的软件是-知到智慧树-或者-mooc-请移步另外一篇博文-“智慧树军事课脚本”"><a href="#如果你是解决的软件是-知到智慧树-或者-mooc-请移步另外一篇博文-“智慧树军事课脚本”" class="headerlink" title="如果你是解决的软件是 知到智慧树 或者 mooc 请移步另外一篇博文 “智慧树军事课脚本”"></a>如果你是解决的软件是 知到智慧树 或者 mooc 请移步另外一篇博文 “智慧树军事课脚本”</h2><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>临近期末，你是否在为网课进度，线上练习而烦恼，什么清华社，学习通等等软件，无一不是大学生的噩梦，当然，也许你可能会发现一种较好抵抗噩梦的法子，代做！可是花钱不说，还要将信息透露给一个陌生人，还可能是诈骗。。。毕竟这样的案例实在是太多了，最后也只能吃哑巴亏。</p><p>那你是否思考过为什么会有“代做”，这些人怎么有那么多时间去同时给许多人完成任务呢？他们有什么特殊的工具吗？答案是肯定的，这也能解释为什么能低成本干看似相当复杂的活。</p><p>这篇文章也触摸到这些代做的利益，但随着互联网深入大众，大家知道是必然的。再者说，这些脚本的作者大多是本着开源发布在互联网上，却被有心人找到“商机”，在这里我不好评价，只是在我看来，大学的大多数线上任务的效果于它对应的时间成本是不匹配的，甚至有些可以说是再浪费时间！然后我想把这些牛人的工程分享更多人知道，让更多人去更好分配自己的时间。</p><p>首先给出一个脚本大全网址 ScriptCat - 分享你的用户脚本 在里面可以搜索各个软件所对应的脚本！接下来我以清华社脚本为例，记录全流程展示。</p><p>（插图好麻烦。。。还是直接看我的 csdn 吧</p><h1 id="前往-csdn"><a href="#前往-csdn" class="headerlink" title="前往 csdn"></a><a href="https://blog.csdn.net/scandi_/article/details/145522668?spm=1001.2014.3001.5501">前往 csdn</a></h1>]]></content>
-      
-      
-      <categories>
-          
-          <category> 大学 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 大学必备小技巧 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>大一上总述</title>
       <link href="/2025/02/16/%E5%A4%A7%E4%B8%80%E4%B8%8A/"/>
       <url>/2025/02/16/%E5%A4%A7%E4%B8%80%E4%B8%8A/</url>
@@ -410,6 +410,31 @@
         <tags>
             
             <tag> 学期总结 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>自动刷题刷课</title>
+      <link href="/2025/02/16/%E8%87%AA%E5%8A%A8%E5%88%B7%E9%A2%98%E5%88%B7%E8%AF%BE/"/>
+      <url>/2025/02/16/%E8%87%AA%E5%8A%A8%E5%88%B7%E9%A2%98%E5%88%B7%E8%AF%BE/</url>
+      
+        <content type="html"><![CDATA[<h2 id="如果你是解决的软件是-知到智慧树-或者-mooc-请移步另外一篇博文-“智慧树军事课脚本”"><a href="#如果你是解决的软件是-知到智慧树-或者-mooc-请移步另外一篇博文-“智慧树军事课脚本”" class="headerlink" title="如果你是解决的软件是 知到智慧树 或者 mooc 请移步另外一篇博文 “智慧树军事课脚本”"></a>如果你是解决的软件是 知到智慧树 或者 mooc 请移步另外一篇博文 “智慧树军事课脚本”</h2><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>临近期末，你是否在为网课进度，线上练习而烦恼，什么清华社，学习通等等软件，无一不是大学生的噩梦，当然，也许你可能会发现一种较好抵抗噩梦的法子，代做！可是花钱不说，还要将信息透露给一个陌生人，还可能是诈骗。。。毕竟这样的案例实在是太多了，最后也只能吃哑巴亏。</p><p>那你是否思考过为什么会有“代做”，这些人怎么有那么多时间去同时给许多人完成任务呢？他们有什么特殊的工具吗？答案是肯定的，这也能解释为什么能低成本干看似相当复杂的活。</p><p>这篇文章也触摸到这些代做的利益，但随着互联网深入大众，大家知道是必然的。再者说，这些脚本的作者大多是本着开源发布在互联网上，却被有心人找到“商机”，在这里我不好评价，只是在我看来，大学的大多数线上任务的效果于它对应的时间成本是不匹配的，甚至有些可以说是再浪费时间！然后我想把这些牛人的工程分享更多人知道，让更多人去更好分配自己的时间。</p><p>首先给出一个脚本大全网址 ScriptCat - 分享你的用户脚本 在里面可以搜索各个软件所对应的脚本！接下来我以清华社脚本为例，记录全流程展示。</p><p>（插图好麻烦。。。还是直接看我的 csdn 吧</p><h1 id="前往-csdn"><a href="#前往-csdn" class="headerlink" title="前往 csdn"></a><a href="https://blog.csdn.net/scandi_/article/details/145522668?spm=1001.2014.3001.5501">前往 csdn</a></h1>]]></content>
+      
+      
+      <categories>
+          
+          <category> 大学 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 大学必备小技巧 </tag>
             
         </tags>
       
