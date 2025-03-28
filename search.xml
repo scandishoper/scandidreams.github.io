@@ -350,31 +350,6 @@
     
     
     <entry>
-      <title>二叉树的遍历</title>
-      <link href="/2025/02/23/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/"/>
-      <url>/2025/02/23/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/</url>
-      
-        <content type="html"><![CDATA[<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a><a href="https://ac.nowcoder.com/acm/contest/21763/D">题目</a></h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">ty</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> z, y;</span><br><span class="line">&#125;a[<span class="number">500005</span>];</span><br><span class="line"><span class="type">int</span> vis[<span class="number">500005</span>];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">xian</span><span class="params">(<span class="type">int</span> f)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cout &lt;&lt; f &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">    <span class="keyword">if</span> (a[f].z) <span class="built_in">xian</span>(a[f].z);</span><br><span class="line">    <span class="keyword">if</span> (a[f].y) <span class="built_in">xian</span>(a[f].y);</span><br><span class="line">    <span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">zhong</span> <span class="params">(<span class="type">int</span> f)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (a[f].z) <span class="built_in">zhong</span>(a[f].z);</span><br><span class="line">    cout &lt;&lt; f &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">    <span class="keyword">if</span> (a[f].y) <span class="built_in">zhong</span>(a[f].y);</span><br><span class="line">    <span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">hou</span><span class="params">(<span class="type">int</span> f)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (a[f].z) <span class="built_in">hou</span>(a[f].z);</span><br><span class="line">    <span class="keyword">if</span> (a[f].y) <span class="built_in">hou</span>(a[f].y);</span><br><span class="line">    cout &lt;&lt; f &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">    <span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">ceng</span><span class="params">(<span class="type">int</span> f)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    queue&lt;<span class="type">int</span>&gt; q;</span><br><span class="line">    q.<span class="built_in">push</span>(f);</span><br><span class="line">    <span class="keyword">while</span> (q.<span class="built_in">size</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> y = q.<span class="built_in">front</span>();</span><br><span class="line">        q.<span class="built_in">pop</span>();</span><br><span class="line">        cout &lt;&lt; y &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">        <span class="keyword">if</span> (a[y].z) q.<span class="built_in">push</span>(a[y].z);</span><br><span class="line">        <span class="keyword">if</span> (a[y].y) q.<span class="built_in">push</span>(a[y].y);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="type">int</span> f = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> u, v, op;</span><br><span class="line">        cin &gt;&gt; u &gt;&gt; v &gt;&gt; op;</span><br><span class="line">        vis[u] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (op == <span class="number">0</span>) a[v].z = u;</span><br><span class="line">        <span class="keyword">else</span> a[v].y = u;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; n; i++)</span><br><span class="line">        <span class="keyword">if</span> (vis[i] == <span class="number">0</span>) f = i;</span><br><span class="line">    <span class="built_in">xian</span>(f);</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">    <span class="built_in">zhong</span>(f);</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">    <span class="built_in">hou</span>(f);</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">    <span class="built_in">ceng</span>(f);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      <categories>
-          
-          <category> 算法笔记 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 二叉树 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>在学校内上传博文的解决</title>
       <link href="/2025/02/23/%E5%9C%A8%E5%AD%A6%E6%A0%A1%E5%86%85%E4%B8%8A%E4%BC%A0%E5%8D%9A%E6%96%87%E6%8A%A5%E9%94%99%E7%9A%84%E8%A7%A3%E5%86%B3/"/>
       <url>/2025/02/23/%E5%9C%A8%E5%AD%A6%E6%A0%A1%E5%86%85%E4%B8%8A%E4%BC%A0%E5%8D%9A%E6%96%87%E6%8A%A5%E9%94%99%E7%9A%84%E8%A7%A3%E5%86%B3/</url>
@@ -392,6 +367,31 @@
         <tags>
             
             <tag> 报错 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>二叉树的遍历</title>
+      <link href="/2025/02/23/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/"/>
+      <url>/2025/02/23/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/</url>
+      
+        <content type="html"><![CDATA[<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a><a href="https://ac.nowcoder.com/acm/contest/21763/D">题目</a></h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">ty</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> z, y;</span><br><span class="line">&#125;a[<span class="number">500005</span>];</span><br><span class="line"><span class="type">int</span> vis[<span class="number">500005</span>];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">xian</span><span class="params">(<span class="type">int</span> f)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cout &lt;&lt; f &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">    <span class="keyword">if</span> (a[f].z) <span class="built_in">xian</span>(a[f].z);</span><br><span class="line">    <span class="keyword">if</span> (a[f].y) <span class="built_in">xian</span>(a[f].y);</span><br><span class="line">    <span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">zhong</span> <span class="params">(<span class="type">int</span> f)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (a[f].z) <span class="built_in">zhong</span>(a[f].z);</span><br><span class="line">    cout &lt;&lt; f &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">    <span class="keyword">if</span> (a[f].y) <span class="built_in">zhong</span>(a[f].y);</span><br><span class="line">    <span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">hou</span><span class="params">(<span class="type">int</span> f)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (a[f].z) <span class="built_in">hou</span>(a[f].z);</span><br><span class="line">    <span class="keyword">if</span> (a[f].y) <span class="built_in">hou</span>(a[f].y);</span><br><span class="line">    cout &lt;&lt; f &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">    <span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">ceng</span><span class="params">(<span class="type">int</span> f)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    queue&lt;<span class="type">int</span>&gt; q;</span><br><span class="line">    q.<span class="built_in">push</span>(f);</span><br><span class="line">    <span class="keyword">while</span> (q.<span class="built_in">size</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> y = q.<span class="built_in">front</span>();</span><br><span class="line">        q.<span class="built_in">pop</span>();</span><br><span class="line">        cout &lt;&lt; y &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">        <span class="keyword">if</span> (a[y].z) q.<span class="built_in">push</span>(a[y].z);</span><br><span class="line">        <span class="keyword">if</span> (a[y].y) q.<span class="built_in">push</span>(a[y].y);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="type">int</span> f = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> u, v, op;</span><br><span class="line">        cin &gt;&gt; u &gt;&gt; v &gt;&gt; op;</span><br><span class="line">        vis[u] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (op == <span class="number">0</span>) a[v].z = u;</span><br><span class="line">        <span class="keyword">else</span> a[v].y = u;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; n; i++)</span><br><span class="line">        <span class="keyword">if</span> (vis[i] == <span class="number">0</span>) f = i;</span><br><span class="line">    <span class="built_in">xian</span>(f);</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">    <span class="built_in">zhong</span>(f);</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">    <span class="built_in">hou</span>(f);</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">    <span class="built_in">ceng</span>(f);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 二叉树 </tag>
             
         </tags>
       
@@ -538,31 +538,6 @@
     
     
     <entry>
-      <title>自动刷题刷课</title>
-      <link href="/2025/02/16/%E8%87%AA%E5%8A%A8%E5%88%B7%E9%A2%98%E5%88%B7%E8%AF%BE/"/>
-      <url>/2025/02/16/%E8%87%AA%E5%8A%A8%E5%88%B7%E9%A2%98%E5%88%B7%E8%AF%BE/</url>
-      
-        <content type="html"><![CDATA[<h2 id="如果你是解决的软件是-知到智慧树-或者-mooc-请移步另外一篇博文-“智慧树军事课脚本”"><a href="#如果你是解决的软件是-知到智慧树-或者-mooc-请移步另外一篇博文-“智慧树军事课脚本”" class="headerlink" title="如果你是解决的软件是 知到智慧树 或者 mooc 请移步另外一篇博文 “智慧树军事课脚本”"></a>如果你是解决的软件是 知到智慧树 或者 mooc 请移步另外一篇博文 “智慧树军事课脚本”</h2><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>临近期末，你是否在为网课进度，线上练习而烦恼，什么清华社，学习通等等软件，无一不是大学生的噩梦，当然，也许你可能会发现一种较好抵抗噩梦的法子，代做！可是花钱不说，还要将信息透露给一个陌生人，还可能是诈骗。。。毕竟这样的案例实在是太多了，最后也只能吃哑巴亏。</p><p>那你是否思考过为什么会有“代做”，这些人怎么有那么多时间去同时给许多人完成任务呢？他们有什么特殊的工具吗？答案是肯定的，这也能解释为什么能低成本干看似相当复杂的活。</p><p>这篇文章也触摸到这些代做的利益，但随着互联网深入大众，大家知道是必然的。再者说，这些脚本的作者大多是本着开源发布在互联网上，却被有心人找到“商机”，在这里我不好评价，只是在我看来，大学的大多数线上任务的效果于它对应的时间成本是不匹配的，甚至有些可以说是再浪费时间！然后我想把这些牛人的工程分享更多人知道，让更多人去更好分配自己的时间。</p><p>首先给出一个脚本大全网址 ScriptCat - 分享你的用户脚本 在里面可以搜索各个软件所对应的脚本！接下来我以清华社脚本为例，记录全流程展示。</p><p>（插图好麻烦。。。还是直接看我的 csdn 吧</p><h1 id="前往-csdn"><a href="#前往-csdn" class="headerlink" title="前往 csdn"></a><a href="https://blog.csdn.net/scandi_/article/details/145522668?spm=1001.2014.3001.5501">前往 csdn</a></h1>]]></content>
-      
-      
-      <categories>
-          
-          <category> 大学 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 大学必备小技巧 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>大一上总述</title>
       <link href="/2025/02/16/%E5%A4%A7%E4%B8%80%E4%B8%8A/"/>
       <url>/2025/02/16/%E5%A4%A7%E4%B8%80%E4%B8%8A/</url>
@@ -580,6 +555,31 @@
         <tags>
             
             <tag> 学期总结 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>自动刷题刷课</title>
+      <link href="/2025/02/16/%E8%87%AA%E5%8A%A8%E5%88%B7%E9%A2%98%E5%88%B7%E8%AF%BE/"/>
+      <url>/2025/02/16/%E8%87%AA%E5%8A%A8%E5%88%B7%E9%A2%98%E5%88%B7%E8%AF%BE/</url>
+      
+        <content type="html"><![CDATA[<h2 id="如果你是解决的软件是-知到智慧树-或者-mooc-请移步另外一篇博文-“智慧树军事课脚本”"><a href="#如果你是解决的软件是-知到智慧树-或者-mooc-请移步另外一篇博文-“智慧树军事课脚本”" class="headerlink" title="如果你是解决的软件是 知到智慧树 或者 mooc 请移步另外一篇博文 “智慧树军事课脚本”"></a>如果你是解决的软件是 知到智慧树 或者 mooc 请移步另外一篇博文 “智慧树军事课脚本”</h2><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>临近期末，你是否在为网课进度，线上练习而烦恼，什么清华社，学习通等等软件，无一不是大学生的噩梦，当然，也许你可能会发现一种较好抵抗噩梦的法子，代做！可是花钱不说，还要将信息透露给一个陌生人，还可能是诈骗。。。毕竟这样的案例实在是太多了，最后也只能吃哑巴亏。</p><p>那你是否思考过为什么会有“代做”，这些人怎么有那么多时间去同时给许多人完成任务呢？他们有什么特殊的工具吗？答案是肯定的，这也能解释为什么能低成本干看似相当复杂的活。</p><p>这篇文章也触摸到这些代做的利益，但随着互联网深入大众，大家知道是必然的。再者说，这些脚本的作者大多是本着开源发布在互联网上，却被有心人找到“商机”，在这里我不好评价，只是在我看来，大学的大多数线上任务的效果于它对应的时间成本是不匹配的，甚至有些可以说是再浪费时间！然后我想把这些牛人的工程分享更多人知道，让更多人去更好分配自己的时间。</p><p>首先给出一个脚本大全网址 ScriptCat - 分享你的用户脚本 在里面可以搜索各个软件所对应的脚本！接下来我以清华社脚本为例，记录全流程展示。</p><p>（插图好麻烦。。。还是直接看我的 csdn 吧</p><h1 id="前往-csdn"><a href="#前往-csdn" class="headerlink" title="前往 csdn"></a><a href="https://blog.csdn.net/scandi_/article/details/145522668?spm=1001.2014.3001.5501">前往 csdn</a></h1>]]></content>
+      
+      
+      <categories>
+          
+          <category> 大学 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 大学必备小技巧 </tag>
             
         </tags>
       
