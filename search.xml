@@ -479,7 +479,7 @@
       <link href="/2025/02/23/%E5%9C%A8%E5%AD%A6%E6%A0%A1%E5%86%85%E4%B8%8A%E4%BC%A0%E5%8D%9A%E6%96%87%E6%8A%A5%E9%94%99%E7%9A%84%E8%A7%A3%E5%86%B3/"/>
       <url>/2025/02/23/%E5%9C%A8%E5%AD%A6%E6%A0%A1%E5%86%85%E4%B8%8A%E4%BC%A0%E5%8D%9A%E6%96%87%E6%8A%A5%E9%94%99%E7%9A%84%E8%A7%A3%E5%86%B3/</url>
       
-        <content type="html"><![CDATA[<p>由于 24 号正式开学，我在昨天晚上返校，从福建到湖北武汉，本一切顺利，但今天突然发现我的博客竟然上传博文的时候报错了？！！原因竟然是因为学校的防火墙阻断了我与 github 的 ssh，以下就是今天解决过程。</p><h2 id="上传博文时出现如下图报错"><a href="#上传博文时出现如下图报错" class="headerlink" title="上传博文时出现如下图报错"></a>上传博文时出现如下图报错</h2><img src="https://i.postimg.cc/90tqLg10/2025-02-23-172146.png">在官网的常见报错中并没有找到对应的解决方法，之后上网查询得知：如果是在公司或学校网络，可能会存在防火墙或代理限制，阻止了 SSH 连接。于是我在git bash中输入<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>出现报错如图所示<img src="https://i.postimg.cc/bJLhLQk8/2025-02-23-220734.png">错误表明 SSH 连接被拒绝，通常是由于网络问题或 SSH 配置问题导致的。这里更符合防火墙或代理限制，阻止了 SSH 连接（端口 22）的猜想。于是开始尝试解决这个问题。<h2 id="一-切换到-HTTPS-端口（443）"><a href="#一-切换到-HTTPS-端口（443）" class="headerlink" title="一.切换到 HTTPS 端口（443）"></a>一.切换到 HTTPS 端口（443）</h2><p>GitHub 支持通过 HTTPS 端口（443）进行 SSH 连接。如果你的网络屏蔽了端口 22，可以尝试下面的方法(windows)</p><h3 id="1-打开-SSH-配置文件："><a href="#1-打开-SSH-配置文件：" class="headerlink" title="1.打开 SSH 配置文件："></a>1.打开 SSH 配置文件：</h3><p>文件路径：C:\Users&lt;你的用户名&gt;.ssh\config。</p><p>如果文件不存在，可以手动创建</p><h3 id="2-添加以下内容："><a href="#2-添加以下内容：" class="headerlink" title="2.添加以下内容："></a>2.添加以下内容：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Host github.com</span><br><span class="line">Hostname ssh.github.com</span><br><span class="line">Port 443</span><br></pre></td></tr></table></figure><h3 id="3-保存并关闭文件。"><a href="#3-保存并关闭文件。" class="headerlink" title="3.保存并关闭文件。"></a>3.保存并关闭文件。</h3><h3 id="4-再次测试-SSH-连接："><a href="#4-再次测试-SSH-连接：" class="headerlink" title="4.再次测试 SSH 连接："></a>4.再次测试 SSH 连接：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure><p>然后应该就会连接正常啦，再重新上传博文应该就不会报错了</p><h2 id="2025-4-8"><a href="#2025-4-8" class="headerlink" title="2025.4.8"></a>2025.4.8</h2><p>今天我的博客上传文章时再次出现同上的报错<br><img src="https://i.postimg.cc/bJLhLQk8/2025-02-23-220734.png"><br>于是我再次在 git bash 中输入</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure><p>出现反馈如图所示<br>![s](assets&#x2F;屏幕截图 2025-04-08 204609.png)<br>这表明 SSH 连接正常</p><p>最后发现原因只是 修改删除大量内容文件，却长时间没有清除 Hexo 缓存和旧文件 导致的</p><p>只需输入如下代码 即可解决</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean   <span class="comment"># 清理 public 文件夹</span></span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<p>由于 24 号正式开学，我在昨天晚上返校，从福建到湖北武汉，本一切顺利，但今天突然发现我的博客竟然上传博文的时候报错了？！！原因竟然是因为学校的防火墙阻断了我与 github 的 ssh，以下就是今天解决过程。</p><h2 id="上传博文时出现如下图报错"><a href="#上传博文时出现如下图报错" class="headerlink" title="上传博文时出现如下图报错"></a>上传博文时出现如下图报错</h2><img src="https://i.postimg.cc/90tqLg10/2025-02-23-172146.png">在官网的常见报错中并没有找到对应的解决方法，之后上网查询得知：如果是在公司或学校网络，可能会存在防火墙或代理限制，阻止了 SSH 连接。于是我在git bash中输入<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>出现报错如图所示<img src="https://i.postimg.cc/bJLhLQk8/2025-02-23-220734.png">错误表明 SSH 连接被拒绝，通常是由于网络问题或 SSH 配置问题导致的。这里更符合防火墙或代理限制，阻止了 SSH 连接（端口 22）的猜想。于是开始尝试解决这个问题。<h2 id="一-切换到-HTTPS-端口（443）"><a href="#一-切换到-HTTPS-端口（443）" class="headerlink" title="一.切换到 HTTPS 端口（443）"></a>一.切换到 HTTPS 端口（443）</h2><p>GitHub 支持通过 HTTPS 端口（443）进行 SSH 连接。如果你的网络屏蔽了端口 22，可以尝试下面的方法(windows)</p><h3 id="1-打开-SSH-配置文件："><a href="#1-打开-SSH-配置文件：" class="headerlink" title="1.打开 SSH 配置文件："></a>1.打开 SSH 配置文件：</h3><p>文件路径：C:\Users&lt;你的用户名&gt;.ssh\config。</p><p>如果文件不存在，可以手动创建</p><h3 id="2-添加以下内容："><a href="#2-添加以下内容：" class="headerlink" title="2.添加以下内容："></a>2.添加以下内容：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Host github.com</span><br><span class="line">Hostname ssh.github.com</span><br><span class="line">Port 443</span><br></pre></td></tr></table></figure><h3 id="3-保存并关闭文件。"><a href="#3-保存并关闭文件。" class="headerlink" title="3.保存并关闭文件。"></a>3.保存并关闭文件。</h3><h3 id="4-再次测试-SSH-连接："><a href="#4-再次测试-SSH-连接：" class="headerlink" title="4.再次测试 SSH 连接："></a>4.再次测试 SSH 连接：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure><p>然后应该就会连接正常啦，再重新上传博文应该就不会报错了</p><h2 id="2025-4-8"><a href="#2025-4-8" class="headerlink" title="2025.4.8"></a>2025.4.8</h2><p>今天我的博客上传文章时再次出现同上的报错<br><img src="https://i.postimg.cc/90tqLg10/2025-02-23-172146.png"><br>于是我再次在 git bash 中输入</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure><p>出现反馈如图所示<br>![s](assets&#x2F;屏幕截图 2025-04-08 204609.png)<br>这表明 SSH 连接正常</p><p>最后发现原因只是 修改删除大量内容文件，却长时间没有清除 Hexo 缓存和旧文件 导致的</p><p>只需输入如下代码 即可解决</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean   <span class="comment"># 清理 public 文件夹</span></span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -638,31 +638,6 @@
     
     
     <entry>
-      <title>自动刷题刷课</title>
-      <link href="/2025/02/16/%E8%87%AA%E5%8A%A8%E5%88%B7%E9%A2%98%E5%88%B7%E8%AF%BE/"/>
-      <url>/2025/02/16/%E8%87%AA%E5%8A%A8%E5%88%B7%E9%A2%98%E5%88%B7%E8%AF%BE/</url>
-      
-        <content type="html"><![CDATA[<h2 id="如果你是解决的软件是-知到智慧树-或者-mooc-请移步另外一篇博文-“智慧树军事课脚本”"><a href="#如果你是解决的软件是-知到智慧树-或者-mooc-请移步另外一篇博文-“智慧树军事课脚本”" class="headerlink" title="如果你是解决的软件是 知到智慧树 或者 mooc 请移步另外一篇博文 “智慧树军事课脚本”"></a>如果你是解决的软件是 知到智慧树 或者 mooc 请移步另外一篇博文 “智慧树军事课脚本”</h2><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>临近期末，你是否在为网课进度，线上练习而烦恼，什么清华社，学习通等等软件，无一不是大学生的噩梦，当然，也许你可能会发现一种较好抵抗噩梦的法子，代做！可是花钱不说，还要将信息透露给一个陌生人，还可能是诈骗。。。毕竟这样的案例实在是太多了，最后也只能吃哑巴亏。</p><p>那你是否思考过为什么会有“代做”，这些人怎么有那么多时间去同时给许多人完成任务呢？他们有什么特殊的工具吗？答案是肯定的，这也能解释为什么能低成本干看似相当复杂的活。</p><p>这篇文章也触摸到这些代做的利益，但随着互联网深入大众，大家知道是必然的。再者说，这些脚本的作者大多是本着开源发布在互联网上，却被有心人找到“商机”，在这里我不好评价，只是在我看来，大学的大多数线上任务的效果于它对应的时间成本是不匹配的，甚至有些可以说是再浪费时间！然后我想把这些牛人的工程分享更多人知道，让更多人去更好分配自己的时间。</p><p>首先给出一个脚本大全网址 ScriptCat - 分享你的用户脚本 在里面可以搜索各个软件所对应的脚本！接下来我以清华社脚本为例，记录全流程展示。</p><p>（插图好麻烦。。。还是直接看我的 csdn 吧</p><h1 id="前往-csdn"><a href="#前往-csdn" class="headerlink" title="前往 csdn"></a><a href="https://blog.csdn.net/scandi_/article/details/145522668?spm=1001.2014.3001.5501">前往 csdn</a></h1>]]></content>
-      
-      
-      <categories>
-          
-          <category> 大学 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 大学必备小技巧 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>大一上总述</title>
       <link href="/2025/02/16/%E5%A4%A7%E4%B8%80%E4%B8%8A/"/>
       <url>/2025/02/16/%E5%A4%A7%E4%B8%80%E4%B8%8A/</url>
@@ -680,6 +655,31 @@
         <tags>
             
             <tag> 学期总结 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>自动刷题刷课</title>
+      <link href="/2025/02/16/%E8%87%AA%E5%8A%A8%E5%88%B7%E9%A2%98%E5%88%B7%E8%AF%BE/"/>
+      <url>/2025/02/16/%E8%87%AA%E5%8A%A8%E5%88%B7%E9%A2%98%E5%88%B7%E8%AF%BE/</url>
+      
+        <content type="html"><![CDATA[<h2 id="如果你是解决的软件是-知到智慧树-或者-mooc-请移步另外一篇博文-“智慧树军事课脚本”"><a href="#如果你是解决的软件是-知到智慧树-或者-mooc-请移步另外一篇博文-“智慧树军事课脚本”" class="headerlink" title="如果你是解决的软件是 知到智慧树 或者 mooc 请移步另外一篇博文 “智慧树军事课脚本”"></a>如果你是解决的软件是 知到智慧树 或者 mooc 请移步另外一篇博文 “智慧树军事课脚本”</h2><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>临近期末，你是否在为网课进度，线上练习而烦恼，什么清华社，学习通等等软件，无一不是大学生的噩梦，当然，也许你可能会发现一种较好抵抗噩梦的法子，代做！可是花钱不说，还要将信息透露给一个陌生人，还可能是诈骗。。。毕竟这样的案例实在是太多了，最后也只能吃哑巴亏。</p><p>那你是否思考过为什么会有“代做”，这些人怎么有那么多时间去同时给许多人完成任务呢？他们有什么特殊的工具吗？答案是肯定的，这也能解释为什么能低成本干看似相当复杂的活。</p><p>这篇文章也触摸到这些代做的利益，但随着互联网深入大众，大家知道是必然的。再者说，这些脚本的作者大多是本着开源发布在互联网上，却被有心人找到“商机”，在这里我不好评价，只是在我看来，大学的大多数线上任务的效果于它对应的时间成本是不匹配的，甚至有些可以说是再浪费时间！然后我想把这些牛人的工程分享更多人知道，让更多人去更好分配自己的时间。</p><p>首先给出一个脚本大全网址 ScriptCat - 分享你的用户脚本 在里面可以搜索各个软件所对应的脚本！接下来我以清华社脚本为例，记录全流程展示。</p><p>（插图好麻烦。。。还是直接看我的 csdn 吧</p><h1 id="前往-csdn"><a href="#前往-csdn" class="headerlink" title="前往 csdn"></a><a href="https://blog.csdn.net/scandi_/article/details/145522668?spm=1001.2014.3001.5501">前往 csdn</a></h1>]]></content>
+      
+      
+      <categories>
+          
+          <category> 大学 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 大学必备小技巧 </tag>
             
         </tags>
       
