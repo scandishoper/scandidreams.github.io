@@ -1,0 +1,155 @@
+//- 原内容
+extends includes/layout.pug
+
+block content
+  #post
+    if top_img === false || page.bilibili_bg
+      include includes/header/post-info.pug
+    if theme.post_head_ai_description
+      include includes/anzhiyu/ai-info.pug
+    - let url = page.copyright_url || page.permalink
+    article#article-container.post-content(itemscope itemtype=url_for(url))
+      header
+        if (theme.post_meta.post.categories && page.categories && page.categories.data.length > 0)
+          each item, index in page.categories.data
+            a(href=url_for(item.path) itemprop="url").post-meta-categories #[=item.name]
+        if (theme.post_meta.page.tags)
+          each item, index in page.tags.data
+            a(href=url_for(item.path) tabindex="-1" itemprop="url")=item.name
+        h1#CrawlerTitle(itemprop="name headline")= page.title || _p('no_title')
+        - let author = page.copyright_author || config.author
+        span(itemprop="author" itemscope itemtype="http://schema.org/Person")=author
+        if (theme.post_meta.post.date_type)
+          if (theme.post_meta.post.date_type === 'both')
+            time(itemprop="dateCreated datePublished" datetime=date_xml(page.date) title=_p('post.created') + ' ' + full_date(page.date))=date(page.date, config.date_format)
+            time(itemprop="dateCreated datePublished" datetime=date_xml(page.updated) title=_p('post.updated') + ' ' + full_date(page.updated))=date(page.updated, config.date_format)
+          else
+            - let data_type_update = theme.post_meta.post.date_type === 'updated'
+            - let date_type = data_type_update ? 'updated' : 'date'
+            time(itemprop="dateCreated datePublished" datetime=date_xml(page[date_type]) title=date_title + ' ' + full_date(page[date_type]))=date(page[date_type], config.date_format)
+      !=page.content
+
+    include includes/post/post-copyright.pug
+
+    //- ad
+    if theme.ad && theme.ad.post
+      .ads-wrap!=theme.ad.post
+
+    if theme.post_pagination
+      include includes/pagination.pug
+    if theme.related_post && theme.related_post.enable
+      != related_posts(page,site.posts)
+
+    if page.comments !== false && theme.comments && theme.comments.use
+      - var commentsJsLoad = true
+      !=partial('includes/third-party/comments/index', {}, {cache: true})
+
+//- 新内容
+//- extends includes/layout.pug
+
+//- block content
+//-   #post
+//-     if top_img === false || page.bilibili_bg
+//-       include includes/header/post-info.pug
+//-     if theme.post_head_ai_description
+//-       include includes/anzhiyu/ai-info.pug
+
+//-     //- ########## 加密模块 ##########
+//-     if page.protected
+//-       #password-protected
+//-         .password-box
+//-           .lock-icon
+//-             i.anzhiyufont.az-icon-lock
+//-           h3 文章已加密
+//-           input#password-input(type="password" placeholder="输入访问密码")
+//-           button#unlock-btn 立即解锁
+//-           p.error-msg(style="display:none; color:#ff4d4d; margin-top:10px;") 密码错误，请重试
+//-         #protected-content(style="display:none;")
+//-           //- 文章内容容器
+//-           article#article-container.post-content(itemscope itemtype=url_for(url))
+//-             != page.content
+//-           //- 其他模块（版权声明、分页等）
+//-           include includes/post/post-copyright.pug
+//-           if theme.post_pagination
+//-             include includes/pagination.pug
+//-           if theme.related_post && theme.related_post.enable
+//-             != related_posts(page,site.posts)
+//-           if page.comments !== false && theme.comments && theme.comments.use
+//-             - var commentsJsLoad = true
+//-             !=partial('includes/third-party/comments/index', {}, {cache: true})
+
+//-       //- 加密脚本
+//-       script.
+//-         // 编码密码并移除换行符
+//-         const rawEncodedPwd = '#{ page.password | base64 }';
+//-         const encodedPwd = rawEncodedPwd.replace(/\\n/g, '');
+//-         const postId = '#{ page.path | md5 }';
+
+//-         function checkPassword() {
+//-           const input = document.getElementById('password-input').value.trim();
+//-           const decodedPwd = atob(encodedPwd);
+//-           const errorMsg = document.querySelector('.error-msg');
+//-           const protectedContent = document.getElementById('protected-content');
+//-           const passwordProtected = document.getElementById('password-protected');
+
+//-           if (input === decodedPwd) {
+//-             protectedContent.style.display = 'block';
+//-             passwordProtected.style.display = 'none';
+//-             localStorage.setItem(`hexoLock_${postId}`, 'verified');
+//-           } else {
+//-             errorMsg.style.display = 'block';
+//-             setTimeout(() => errorMsg.style.display = 'none', 2000);
+//-           }
+//-         }
+
+//-         // 绑定按钮点击事件
+//-         document.getElementById('unlock-btn').addEventListener('click', checkPassword);
+
+//-         // 验证本地存储
+//-         window.onload = () => {
+//-           if (localStorage.getItem(`hexoLock_${postId}`)) {
+//-             document.getElementById('protected-content').style.display = 'block';
+//-             document.getElementById('password-protected').style.display = 'none';
+//-           }
+//-         };
+
+      
+
+//-     //- ########## 非加密文章正常显示 ##########
+//-     else
+//-       //- 原有完整文章结构
+//-       - let url = page.copyright_url || page.permalink
+//-       article#article-container.post-content(itemscope itemtype=url_for(url))
+//-         header
+//-           if (theme.post_meta.post.categories && page.categories && page.categories.data.length > 0)
+//-             each item, index in page.categories.data
+//-               a(href=url_for(item.path) itemprop="url").post-meta-categories #[=item.name]
+//-           if (theme.post_meta.page.tags)
+//-             each item, index in page.tags.data
+//-               a(href=url_for(item.path) tabindex="-1" itemprop="url")=item.name
+//-           h1#CrawlerTitle(itemprop="name headline")= page.title || _p('no_title')
+//-           - let author = page.copyright_author || config.author
+//-           span(itemprop="author" itemscope itemtype="http://schema.org/Person")=author
+//-           if (theme.post_meta.post.date_type)
+//-             if (theme.post_meta.post.date_type === 'both')
+//-               time(itemprop="dateCreated datePublished" datetime=date_xml(page.date) title=_p('post.created') + ' ' + full_date(page.date))=date(page.date, config.date_format)
+//-               time(itemprop="dateCreated datePublished" datetime=date_xml(page.updated) title=_p('post.updated') + ' ' + full_date(page.updated))=date(page.updated, config.date_format)
+//-             else
+//-               - let data_type_update = theme.post_meta.post.date_type === 'updated'
+//-               - let date_type = data_type_update ? 'updated' : 'date'
+//-               time(itemprop="dateCreated datePublished" datetime=date_xml(page[date_type]) title=date_title + ' ' + full_date(page[date_type]))=date(page[date_type], config.date_format)
+//-         !=page.content
+
+//-       include includes/post/post-copyright.pug
+
+//-       if theme.ad && theme.ad.post
+//-         .ads-wrap!=theme.ad.post
+
+//-       if theme.post_pagination
+//-         include includes/pagination.pug
+//-       if theme.related_post && theme.related_post.enable
+//-         != related_posts(page,site.posts)
+
+//-       if page.comments !== false && theme.comments && theme.comments.use
+//-         - var commentsJsLoad = true
+//-         !=partial('includes/third-party/comments/index', {}, {cache: true})
