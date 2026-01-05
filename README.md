@@ -5,7 +5,7 @@
 
 这是我的个人技术博客，主要分享算法解析、技术实践和开发周记。记录学习历程，沉淀技术思考。
 
-**访问地址**: https://scandidreams.top/
+**访问地址**: https://blog.scandidreams.top/
 
 ## ✨ 博客特色
 
