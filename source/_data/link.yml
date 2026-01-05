@@ -1,0 +1,18 @@
+- class_name: 小伙伴
+  flink_style: telescopic
+  hundredSuffix: ""
+  link_list:
+    - name: mc2356
+      link: https://blog.csdn.net/2401_88542533?ops_request_misc=%7B%22request%5Fid%22%3A%22af623fd9806b32c89e5fdd5e05405602%22%2C%22scm%22%3A%2220140713.130064515..%22%7D&request_id=af623fd9806b32c89e5fdd5e05405602&biz_id=206&utm_medium=distribute.pc_search_result.none-task-user-null-1-176939749-null-null.nonecase&utm_term=mc2356&spm=1018.2226.3001.4351
+      avatar: https://i-avatar.csdnimg.cn/3c56ec8a5f7d4741b70e607a19ac83da_2401_88542533.jpg!1
+      descr: 生活明朗，万物可爱
+      siteshot: https://npm.elemecdn.com/anzhiyu-theme-static@1.1.6/img/blog.anheyu.com.jpg
+      color: vip
+      tag: 技术
+    - name: Ceiling.G
+      link: https://recordgsl.com/
+      avatar: https://recordgsl.com/_next/image?url=https%3A%2F%2Fimg.recordgsl.com%2Ffrog.jpg&w=384&q=75
+      descr: 穷且益坚 不坠青云之志
+      siteshot: https://recordgsl.com/_next/image?url=https%3A%2F%2Fimg.recordgsl.com%2Ffrog.jpg&w=384&q=75
+      color: vip
+      tag: 摸鱼

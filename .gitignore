@@ -1,0 +1,11 @@
+# 系统/编辑器
+.DS_Store
+.idea/
+*.log
+
+# Node
+node_modules/
+
+# Hexo 构建产物（非常重要）
+public/
+

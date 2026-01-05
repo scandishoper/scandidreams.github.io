@@ -1,0 +1,100 @@
+- class_name: 关于页
+  subtitle: 心怀暖阳，步履生风✨
+  avatarImg: assets/头像.png
+  avatarSkills:
+    #left:
+    #  - 🤖️ 数码科技爱好者
+    #  - 🔍 分享与热心帮助
+    #  - 🏠 体育锻炼小能手
+    #  - 🔨 算法学习小菜菜
+    #right:
+    #  - 专修交互与设计 🤝
+    #  - 脚踏实地行动派 🏃
+    #  - 团队小组发动机 🧱
+    #  - 壮汉人狠话不多 💢
+  name: scandi
+  description: 是一名 计科学生
+  aboutsiteTips:
+    tips: 追求
+    title1: 源于
+    title2: 热爱而去 感受
+    word:
+      - 学习
+      - 生活
+      - 程序
+      - 体验
+  helloAbout: Hello there!
+  skillsTips:
+    tips: 技能
+    title: 开启创造力
+
+  careers:
+    tips: 生涯
+    title: 无限进步
+    list:
+      - desc: wust,计算机科学与技术专业
+        color: "#357ef5"
+      - desc: wust,计算机科学与技术专业
+        color: "#357ef5"
+      - desc: wust,计算机科学与技术专业
+        color: "#357ef5"
+    img:
+  statistic:
+    link: /archives
+    text: 文章隧道
+    cover: https://bu.dusays.com/2023/05/01/644f4b037b930.jpg
+  map:
+    title: 我现在住在
+    StrengthenTitle: 中国，武汉市
+    background: https://i.postimg.cc/qqYL44wp/image.png
+    backgroundDark: https://i.postimg.cc/qqYL44wp/image.png
+  selfInfo:
+    selfInfoTips1: 生于
+    selfInfoContentYear: 2006
+    selfInfoTips2: 武汉科技大学
+    selfInfoContent2: 计算机科学与技术
+    selfInfoTips3: 现在职业
+    selfInfoContent3: 大一学生👨‍🎓
+  personalities:
+    author_name: 教育家
+    personality_type: ENFJ
+    photo_url: https://i.postimg.cc/cJmB6Qh9/1.png
+    personality_img: https://npm.elemecdn.com/anzhiyu-blog@2.0.8/img/svg/ESFJ-A.svg
+    name_url: https://www.16personalities.com/ch/esfj-%E4%BA%BA%E6%A0%BC
+  maxim:
+    maxim_tips: 座右铭
+    maxim_top: 心怀暖阳，
+    maxim_bottom: 步履生风。
+  buff:
+    buff_tips: 特长
+    buff_top:
+    buff_bottom:
+  game:
+    game_tips: 爱好游戏
+    game_title:
+    game_uid:
+    game_bg:
+  comic:
+    comic_tips: 爱好番剧
+    comic_title: 追番
+    comic_list:
+      - name: #咒术回战
+        href: #https://www.bilibili.com/bangumi/media/md28229899/?spm_id_from=666.25.b_6d656469615f6d6f64756c65.1
+        cover: #https://bu.dusays.com/2023/05/24/646db4398832e.webp
+      - name: #鬼灭之刃
+        href: #https://www.bilibili.com/bangumi/media/md22718131/?spm_id_from=666.25.b_6d656469615f6d6f64756c65.1
+        cover: #https://bu.dusays.com/2023/05/24/646db439856a0.webp
+  like:
+    like_tips: 关注偏好
+    like_title: 数码科技
+    like_bg: https://bu.dusays.com/2022/12/06/638f5f05ce1f7.jpg
+    like_bottom: 手机、电脑软硬件
+  music:
+    music_tips: 音乐偏好
+    music_title: #许嵩、民谣、华语流行
+    music_bg: https://p2.music.126.net/Mrg1i7DwcwjWBvQPIMt_Mg==/79164837213438.jpg
+    music_link: /music
+  reward_list:
+    - name: scandi
+      amount: 0.01
+      datatime: 2025-03-08
