@@ -1,0 +1,623 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>Codeforces Round 1077 (Div. 2)题解 | scandi-blog</title><meta name="keywords" content="题解"><meta name="author" content="scandi"><meta name="copyright" content="scandi"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#18171d"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="Codeforces Round 1077 (Div. 2)题解"><meta name="application-name" content="Codeforces Round 1077 (Div. 2)题解"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#18171d"><meta property="og:type" content="article"><meta property="og:title" content="Codeforces Round 1077 (Div. 2)题解"><meta property="og:url" content="https://blog.scandidreams.top/2026/01/30/Codeforces%20Round%201077%20(Div.%202)%E9%A2%98%E8%A7%A3/index.html"><meta property="og:site_name" content="scandi-blog"><meta property="og:description" content="Codeforces Round 1077 (Div. 2)题解A. Divisible Permutation题意：构造一个长度为$n$的排列$p$，使得 $1 \le i \le n - 1$ 都有 $|p_i - p_{i + 1}| % i &amp;#x3D; 0$  分析：考虑到最后两个位置的差"><meta property="og:locale" content="zh-CN"><meta property="og:image" content="https://blog.scandidreams.top/assets/2cb79efe667b08d4b12e3b103d67653.jpg"><meta property="article:author" content="scandi"><meta property="article:tag" content="shoper"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://blog.scandidreams.top/assets/2cb79efe667b08d4b12e3b103d67653.jpg"><meta name="description" content="Codeforces Round 1077 (Div. 2)题解A. Divisible Permutation题意：构造一个长度为$n$的排列$p$，使得 $1 \le i \le n - 1$ 都有 $|p_i - p_{i + 1}| % i &amp;#x3D; 0$  分析：考虑到最后两个位置的差"><link rel="shortcut icon" href="/favicon.ico"><link rel="canonical" href="https://blog.scandidreams.top/2026/01/30/Codeforces%20Round%201077%20(Div.%202)%E9%A2%98%E8%A7%A3/"><link rel="preconnect" href="//cdn.cbd.int"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="xxx"/><meta name="baidu-site-verification" content="code-xxx"/><meta name="msvalidate.01" content="xxx"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  linkPageTop: undefined,
+  peoplecanvas: {"enable":true,"img":"https://upload-bbs.miyoushe.com/upload/2024/07/27/125766904/ba62475f396df9de3316a08ed9e65d86_5680958632268053399..png"},
+  postHeadAiDescription: undefined,
+  diytitle: {"enable":true,"leaveTitle":"404 Not Found","backTitle":"♪(^∇^*)骗你哒嘿嘿！"},
+  LA51: undefined,
+  greetingBox: undefined,
+  twikooEnvId: '',
+  commentBarrageConfig:undefined,
+  music_page_default: "nav_music",
+  root: '/',
+  preloader: {"source":3},
+  friends_vue_info: undefined,
+  navMusic: true,
+  mainTone: undefined,
+  authorStatus: undefined,
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    simplehomepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"copy":true,"copyrightEbable":false,"limitCount":50,"languages":{"author":"作者: scandi","link":"链接: ","source":"来源: scandi-blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。","copySuccess":"复制成功，复制和转载请标注本文地址"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.min.js',
+      css: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  shortcutKey: undefined,
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  configTitle: 'scandi-blog',
+  title: 'Codeforces Round 1077 (Div. 2)题解',
+  postAI: '',
+  pageFillDescription: '题解, A. Divisible Permutation, 题意：, 分析：, B. Seats, 题意：, 分析：, C. Restricted Sorting, 题意：, 分析：, D. Shortest Statement Ever, 题意：, 分析：题解题意构造一个长度为的排列使得都有分析考虑到最后两个位置的差要整除则必然其中一个位置是另外一个位置是那么倒着手模后不难找出奇偶位置分别的规律直接模拟即可题意输入一段长为的字符串其中代表该位置无人代表该位置有人规定相邻座位不能有人问如何填充空位置使得不能够再填充时总人数最少分析赛时第分钟才成功这题破防了首先考虑特殊情况如果字符串全是会有什么规律呢填充前填充后最少人数至此不难发现最少人数满足那么字符串中如果有那么可以当做字符串被多个分成多个连续的段这些段一共只有三种可能出现的情况第一种就像我们上面考虑到那种特殊情况当整个字符串全是时那么连续段的开头和结尾都没有被限制那么第二种如果连续段出现在开头而后被断隔开非开头但是连续到结尾是一样的这种情况的连续段有其中一端是和相邻所以不能安排人相当于把这个扣掉了那么此时第三种就是整个连续段被两端的包裹起来那么两端的都被限制直接扣掉两个即可得到那么直接代码模拟实现即可题意找到一个最大可能值使得如果满足可以交换任意次数和使得最后排序为非降序如果没有最大值不用交换直接输出分析首先最终是按照的非降序排列则每个数的最终位置是固定的显然我们只需要对那些正处在错误位置的数考虑交换位置正确的不需要考虑那么错误位置的数要如何交换呢其实我们不用细究整个交换的过程手模几个小数据不难发现只要有在错误位置的数我们都可以通过任何数作为媒介去把它移动到正确的位置上也就是说我们只需考虑哪些数作为媒介最优呢显然不是最小的数就是最大的数题意输入和找到两个非负整数和其中使得最小化分析首先说明对于二进制位同一个位的不能同时分给和那么其实这就是一道考虑从高位到低位的二进制枚举我们只需要考虑好每一位的二进制该分给或者是即可为了最小化两者的差值在分的过程中我们显然考虑让和都尽可能接近和假设要让数和数相同在二进制中其实就是让的二进制在二进制为的位置上也为即可但是考虑到有些位置我们不能让如愿所以就会产生两种二进制中的靠近数的方式和同理如果某个二进制位数不能如愿为那么数可以考虑先放置之后无论的二进制位是否是我们都尽可能为放置这样才能更加接近进而使得差值更小如果某个二进制位数不能如愿为那么也可以考虑在数的上几位中最接近当前位置的的位置变成这样使得之后所有位置放置即可最小化差值这样一来考虑的思路有了该怎么实现呢难点在于第二种方式的数的上几位中最接近当前位置的的位置变成中的这个的位置该怎么找到赛时脑子转不动了直接暴力不想了二进制枚举才次直接的复杂度考虑无论是或者都把他们任何位置可能的第二种靠近方法计算出来再全局取最小值即可到这里其实可以直接上代码了再稍微解释下我的代码思路可结合下面代码看先换位使得始终大于方便后续二进制枚举判断外层二进制枚举的作用其实就是维护始终朝着与值相等的值变化维护所有二进制位中为的位置都让在的基础上按照第二种靠近方法变大然后进入内层二进制枚举考虑让所有按照第二种靠近方法变大的值放入数组最后再把内层循环结束的也就是按照第一种变小的靠近方法的数也放入数组排序最后得出的就是当前与最优的所构成的答案维护全局最优答案即可最后记得交换回来有点啰嗦了暴力方法应该不是正解但还是希望对你有帮助',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2026-01-29 21:11:03',
+  postMainColor: '',
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 8.1.1"></head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img nolazyload" alt="加载头像" src="/assets/%E5%A4%B4%E5%83%8F.png"/><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.getElementById('loading-box').classList.add("loaded");
+  },
+  initLoading: () => {
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+setTimeout(function(){preloader.endLoading();},10000)
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.10/progress_bar/progress_bar.css"/><script async="async" src="https://cdn.cbd.int/pace-js@1.2.4/pace.min.js" data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}"></script><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><a id="site-name" href="/" accesskey="h"><div class="title">scandi-blog</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 文章总览</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/link/"><span> 友链</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/comments/"><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 认识我</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于我</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/essay/"><i class="anzhiyufont anzhiyu-icon-lightbulb faa-tada" style="font-size: 0.9em;"></i><span> 关于博客</span></a></li><li><a class="site-page child faa-parent animated-hover" href="javascript:toRandomPost()"><i class="anzhiyufont anzhiyu-icon-shoe-prints1 faa-tada" style="font-size: 0.9em;"></i><span> 随便逛逛</span></a></li></ul></div></div></div><div id="nav-right"><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><input id="center-console" type="checkbox"/><label class="widget" for="center-console" title="中控台" onclick="anzhiyu.switchConsole();"><i class="left"></i><i class="widget center"></i><i class="widget right"></i></label><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="/assets/0934e9c0c30401b75ed5c1888c09118.jpg" target="_blank"><img class="post-qr-code-img" alt="微信" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/assets/0934e9c0c30401b75ed5c1888c09118.jpg"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/assets/2cf6ad1f394b2b8e1b93d21a47012a7.jpg" target="_blank"><img class="post-qr-code-img" alt="支付宝" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/assets/2cf6ad1f394b2b8e1b93d21a47012a7.jpg"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> 最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/STL/" style="font-size: 1.05rem;">STL<sup>2</sup></a><a href="/tags/c/" style="font-size: 1.05rem;">c++<sup>3</sup></a><a href="/tags/csapp/" style="font-size: 1.05rem;">csapp<sup>1</sup></a><a href="/tags/%E4%BC%A0%E7%BB%9F%E7%AE%97%E6%B3%95/" style="font-size: 1.05rem;">传统算法<sup>14</sup></a><a href="/tags/%E4%BD%9C%E4%B8%9A/" style="font-size: 1.05rem;">作业<sup>1</sup></a><a href="/tags/%E5%88%B7%E8%AF%BE/" style="font-size: 1.05rem;">刷课<sup>2</sup></a><a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 1.05rem;">博客搭建<sup>1</sup></a><a href="/tags/%E6%8A%A5%E9%94%99/" style="font-size: 1.05rem;">报错<sup>1</sup></a><a href="/tags/%E6%8F%92%E4%BB%B6/" style="font-size: 1.05rem;">插件<sup>1</sup></a><a href="/tags/%E7%94%9F%E6%B4%BB/" style="font-size: 1.05rem;">生活<sup>16</sup></a><a href="/tags/%E8%A7%82%E7%82%B9/" style="font-size: 1.05rem;">观点<sup>5</sup></a><a href="/tags/%E9%A2%98%E8%A7%A3/" style="font-size: 1.05rem;">题解<sup>6</sup></a></div></div><hr/></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="anzhiyufont anzhiyu-icon-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2026/01/"><span class="card-archive-list-date">一月 2026</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">7</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/12/"><span class="card-archive-list-date">十二月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/09/"><span class="card-archive-list-date">九月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">3</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/08/"><span class="card-archive-list-date">八月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">3</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/07/"><span class="card-archive-list-date">七月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/05/"><span class="card-archive-list-date">五月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">5</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/04/"><span class="card-archive-list-date">四月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">6</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/03/"><span class="card-archive-list-date">三月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">12</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="anzhiyu.musicToggle()" title="音乐开关"><a class="music-switch"><i class="anzhiyufont anzhiyu-icon-music"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original">原创</a><span class="post-meta-categories"><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url">算法</a></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/%E9%A2%98%E8%A7%A3/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>题解</span></a></span></div></div><h1 class="post-title" itemprop="name headline">Codeforces Round 1077 (Div. 2)题解</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" itemprop="dateCreated datePublished" datetime="2026-01-30T00:00:00.000Z" title="发表于 2026-01-30 00:00:00">2026-01-30</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" itemprop="dateCreated datePublished" datetime="2026-01-29T21:11:03.107Z" title="更新于 2026-01-29 21:11:03">2026-01-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator"></span><span class="post-meta-wordcount"><i class="anzhiyufont anzhiyu-icon-file-word post-meta-icon" title="文章字数"></i><span class="post-meta-label" title="文章字数">字数总计:</span><span class="word-count" title="文章字数">2.5k</span><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-clock post-meta-icon" title="阅读时长"></i><span class="post-meta-label" title="阅读时长">阅读时长:</span><span>10分钟</span></span><span class="post-meta-separator"></span><span class="post-meta-pv-cv" id="" data-flag-title="Codeforces Round 1077 (Div. 2)题解"><i class="anzhiyufont anzhiyu-icon-fw-eye post-meta-icon"></i><span class="post-meta-label" title="阅读量">阅读量:</span><span id="busuanzi_value_page_pv"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></i></span></span><span class="post-meta-separator">       </span><span class="post-meta-position" title="作者IP属地为泉州/武汉"><i class="anzhiyufont anzhiyu-icon-location-dot"></i>泉州/武汉</span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src="/assets/2cb79efe667b08d4b12e3b103d67653.jpg"></div></header><main id="blog-container"><div class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container" itemscope itemtype="https://blog.scandidreams.top/2026/01/30/Codeforces%20Round%201077%20(Div.%202)%E9%A2%98%E8%A7%A3/"><header><a class="post-meta-categories" href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url">算法</a><a href="/tags/%E9%A2%98%E8%A7%A3/" tabindex="-1" itemprop="url">题解</a><h1 id="CrawlerTitle" itemprop="name headline">Codeforces Round 1077 (Div. 2)题解</h1><span itemprop="author" itemscope itemtype="http://schema.org/Person">scandi</span><time itemprop="dateCreated datePublished" datetime="2026-01-30T00:00:00.000Z" title="发表于 2026-01-30 00:00:00">2026-01-30</time><time itemprop="dateCreated datePublished" datetime="2026-01-29T21:11:03.107Z" title="更新于 2026-01-29 21:11:03">2026-01-29</time></header><h1 id="Codeforces-Round-1077-Div-2-题解"><a href="#Codeforces-Round-1077-Div-2-题解" class="headerlink" title="Codeforces Round 1077 (Div. 2)题解"></a><a target="_blank" rel="noopener" href="https://codeforces.com/contest/2188">Codeforces Round 1077 (Div. 2)</a>题解</h1><h2 id="A-Divisible-Permutation"><a href="#A-Divisible-Permutation" class="headerlink" title="A. Divisible Permutation"></a>A. Divisible Permutation</h2><h3 id="题意："><a href="#题意：" class="headerlink" title="题意："></a>题意：</h3><p>构造一个长度为$n$的排列$p$，使得 $1 \le i \le n - 1$ 都有 $|p_i - p_{i + 1}| % i &#x3D; 0$ </p>
+<h3 id="分析："><a href="#分析：" class="headerlink" title="分析："></a>分析：</h3><p>考虑到最后两个位置的差要整除$n - 1$，则必然其中一个位置是$1$，另外一个位置是$n$</p>
+<p>那么倒着手模后，不难找出奇偶位置分别的规律，直接模拟即可</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">using</span> ll = <span class="type">long</span> <span class="type">long</span>;</span><br><span class="line"><span class="keyword">using</span> arr2 = array&lt;<span class="type">int</span>, <span class="number">2</span>&gt;;</span><br><span class="line"><span class="keyword">using</span> arr3 = array&lt;<span class="type">int</span>, <span class="number">3</span>&gt;;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = (<span class="type">int</span>)<span class="number">2e5</span> + <span class="number">9</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> M = (<span class="type">int</span>)<span class="number">1e5</span> + <span class="number">9</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> mod = <span class="number">998244353</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">ans</span><span class="params">(n + <span class="number">5</span>)</span></span>;</span><br><span class="line">    <span class="type">int</span> j = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n + <span class="number">4</span>; i += <span class="number">2</span>) &#123;</span><br><span class="line">        ans[i] = j;</span><br><span class="line">        j++;</span><br><span class="line">    &#125;</span><br><span class="line">    j = n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt;= n + <span class="number">4</span>; i += <span class="number">2</span>) &#123;</span><br><span class="line">        ans[i] = j;</span><br><span class="line">        j--;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = n; i &gt;= <span class="number">1</span>; i--) &#123;</span><br><span class="line">        cout &lt;&lt; ans[i] &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="type">int</span> _ = <span class="number">1</span>;</span><br><span class="line">    cin &gt;&gt; _;</span><br><span class="line">    <span class="keyword">while</span>(_--) &#123;</span><br><span class="line">        <span class="built_in">solve</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="B-Seats"><a href="#B-Seats" class="headerlink" title="B. Seats"></a>B. Seats</h2><h3 id="题意：-1"><a href="#题意：-1" class="headerlink" title="题意："></a>题意：</h3><p>输入一段长为$n$的$01$字符串，其中$0$代表该位置无人，$1$代表该位置有人，规定相邻座位不能有人，问如何填充空位置，使得不能够再填充时，总人数最少</p>
+<h3 id="分析：-1"><a href="#分析：-1" class="headerlink" title="分析："></a>分析：</h3><p>赛时第$56$分钟才成功$ac$这题……破防了</p>
+<p>首先考虑特殊情况，如果字符串全是$0$，会有什么规律呢？</p>
+<table>
+<thead>
+<tr>
+<th>n</th>
+<th>填充前</th>
+<th>填充后</th>
+<th>最少人数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>00</td>
+<td>01</td>
+<td>1</td>
+</tr>
+<tr>
+<td>3</td>
+<td>000</td>
+<td>010</td>
+<td>1</td>
+</tr>
+<tr>
+<td>4</td>
+<td>0000</td>
+<td>0101</td>
+<td>2</td>
+</tr>
+<tr>
+<td>5</td>
+<td>00000</td>
+<td>01001</td>
+<td>2</td>
+</tr>
+<tr>
+<td>6</td>
+<td>000000</td>
+<td>010010</td>
+<td>2</td>
+</tr>
+<tr>
+<td>7</td>
+<td>0000000</td>
+<td>0100101</td>
+<td>3</td>
+</tr>
+<tr>
+<td>8</td>
+<td>00000000</td>
+<td>01001001</td>
+<td>3</td>
+</tr>
+<tr>
+<td>9</td>
+<td>000000000</td>
+<td>010010010</td>
+<td>3</td>
+</tr>
+</tbody></table>
+<p>至此，不难发现最少人数$cnt$，满足$cnt &#x3D; (n + 2) &#x2F; 3$</p>
+<p>那么字符串中如果有$1$，那么可以当做，字符串被多个$1$，分成多个连续的$0$段，这些$0$段一共只有三种可能出现的情况</p>
+<ul>
+<li>第一种就像我们上面考虑到那种特殊情况，当整个字符串全是$0$时，那么连续$0$段的开头和结尾都没有被限制，那么$cnt &#x3D; (n + 2) &#x2F; 3$</li>
+<li>第二种，如果连续$0$段出现在开头而后被$1$断隔开（非开头但是连续到结尾是一样的），这种情况的连续$0$段，有其中一端是和$1$相邻，所以不能安排人，相当于把这个$0$扣掉了，那么此时$cnt &#x3D; (n + 1) &#x2F; 3$</li>
+<li>第三种，就是整个连续$0$段，被两端的$1$包裹起来，那么两端的$0$都被限制，直接扣掉两个$0$，即可得到$cnt &#x3D; n &#x2F; 3$</li>
+</ul>
+<p>那么直接代码模拟实现即可</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">using</span> ll = <span class="type">long</span> <span class="type">long</span>;</span><br><span class="line"><span class="keyword">using</span> arr2 = array&lt;<span class="type">int</span>, <span class="number">2</span>&gt;;</span><br><span class="line"><span class="keyword">using</span> arr3 = array&lt;<span class="type">int</span>, <span class="number">3</span>&gt;;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = (<span class="type">int</span>)<span class="number">2e5</span> + <span class="number">9</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> M = (<span class="type">int</span>)<span class="number">1e5</span> + <span class="number">9</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> mod = <span class="number">998244353</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    string s;</span><br><span class="line">    cin &gt;&gt; s;</span><br><span class="line">    <span class="type">int</span> cnt = <span class="number">0</span>, ans = <span class="number">0</span>;</span><br><span class="line">    <span class="type">bool</span> f = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (s[i] == <span class="string">&#x27;0&#x27;</span>) &#123;</span><br><span class="line">            cnt++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (!f) &#123;</span><br><span class="line">                ans++;</span><br><span class="line">                ans += (cnt + <span class="number">1</span>) / <span class="number">3</span>;</span><br><span class="line">                cnt = <span class="number">0</span>;</span><br><span class="line">                f = <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            ans++;</span><br><span class="line">            ans += cnt / <span class="number">3</span>;</span><br><span class="line">            cnt = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!f) &#123;</span><br><span class="line">        ans += (cnt + <span class="number">2</span>) / <span class="number">3</span>;</span><br><span class="line">        cout &lt;&lt; ans &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    ans += (cnt + <span class="number">1</span>) / <span class="number">3</span>;</span><br><span class="line">    cout &lt;&lt; ans &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="type">int</span> _ = <span class="number">1</span>;</span><br><span class="line">    cin &gt;&gt; _;</span><br><span class="line">    <span class="keyword">while</span>(_--) &#123;</span><br><span class="line">        <span class="built_in">solve</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="C-Restricted-Sorting"><a href="#C-Restricted-Sorting" class="headerlink" title="C. Restricted Sorting"></a>C. Restricted Sorting</h2><h3 id="题意：-2"><a href="#题意：-2" class="headerlink" title="题意："></a>题意：</h3><p>找到一个最大可能值$k$，使得如果满足$|a_i - a_j| \ge k$，可以交换任意次数$a_i$和$a_j$，使得最后$a$排序为非降序，如果没有最大值（不用交换），直接输出$-1$</p>
+<h3 id="分析：-2"><a href="#分析：-2" class="headerlink" title="分析："></a>分析：</h3><p>首先，最终是按照$a$的非降序排列，则每个数的最终位置是固定的，显然我们只需要对那些正处在错误位置的数考虑交换，位置正确的不需要考虑</p>
+<p>那么，错误位置的数要如何交换呢？其实我们不用细究整个交换的过程，手模几个小数据不难发现，只要有在错误位置的数，我们都可以通过任何数作为媒介去把它移动到正确的位置上。</p>
+<p>也就是说，我们只需考虑，哪些数作为媒介最优呢？显然不是最小的数就是最大的数。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">using</span> ll = <span class="type">long</span> <span class="type">long</span>;</span><br><span class="line"><span class="keyword">using</span> arr2 = array&lt;<span class="type">int</span>, <span class="number">2</span>&gt;;</span><br><span class="line"><span class="keyword">using</span> arr3 = array&lt;<span class="type">int</span>, <span class="number">3</span>&gt;;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = (<span class="type">int</span>)<span class="number">2e5</span> + <span class="number">9</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> M = (<span class="type">int</span>)<span class="number">1e5</span> + <span class="number">9</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> mod = <span class="number">998244353</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">a</span><span class="params">(n + <span class="number">5</span>)</span>, <span class="title">b</span><span class="params">(n + <span class="number">5</span>)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        cin &gt;&gt; a[i];</span><br><span class="line">        b[i] = a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">sort</span>(b.<span class="built_in">begin</span>() + <span class="number">1</span>, b.<span class="built_in">begin</span>() + <span class="number">1</span> + n);</span><br><span class="line">    <span class="type">int</span> mn = b[<span class="number">1</span>];</span><br><span class="line">    <span class="type">int</span> mx = b[n];</span><br><span class="line">    <span class="type">int</span> k = <span class="number">1e15</span>;</span><br><span class="line">    <span class="type">bool</span> f = <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> x = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (a[i] != b[i]) &#123;</span><br><span class="line">            f = <span class="number">1</span>;</span><br><span class="line">            k = <span class="built_in">min</span>(<span class="built_in">max</span>(<span class="built_in">abs</span>(mn - b[i]), <span class="built_in">abs</span>(mx - b[i])), k);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!f) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;-1\n&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; k &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="type">int</span> _ = <span class="number">1</span>;</span><br><span class="line">    cin &gt;&gt; _;</span><br><span class="line">    <span class="keyword">while</span>(_--) &#123;</span><br><span class="line">        <span class="built_in">solve</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="D-Shortest-Statement-Ever"><a href="#D-Shortest-Statement-Ever" class="headerlink" title="D. Shortest Statement Ever"></a>D. Shortest Statement Ever</h2><h3 id="题意：-3"><a href="#题意：-3" class="headerlink" title="题意："></a>题意：</h3><p>输入$x$和$y$，找到两个非负整数$p$和$q$，其中$p &amp; q &#x3D; 0$，使得$|x - p| + |y - q|$最小化</p>
+<h3 id="分析：-3"><a href="#分析：-3" class="headerlink" title="分析："></a>分析：</h3><p>首先，$p &amp; q &#x3D; 0$说明对于二进制位，同一个位的$1$，不能同时分给$p$和$q$</p>
+<p>那么其实这就是一道考虑从高位到低位的二进制枚举，我们只需要考虑好，每一位的二进制$1$，该分给$p$或者是$q$即可</p>
+<p>为了最小化两者的差值，在分的过程中，我们显然考虑让$p$和$q$都尽可能接近$x$和$y$</p>
+<p>假设要让数$p$和数$x$相同，在二进制中其实就是让$p$的二进制在$x$二进制为$1$的位置上也为$1$即可，但是考虑到有些位置我们不能让$p$如愿，所以就会产生两种二进制中的靠近数$x$的方式（$q$和$y$同理）</p>
+<ul>
+<li>如果某个二进制位，数$p$不能如愿为$1$，那么数$p$可以考虑先放置$0$，之后无论$x$的二进制位是否是$1$，我们都尽可能为$p$放置$1$，这样才能更加接近$x$，进而使得差值更小</li>
+<li>如果某个二进制位，数$p$不能如愿为$1$，那么也可以考虑在数$p$的上几位中最接近当前位置的$0$的位置，变成$1$，这样使得$p &gt; x$，之后所有位置放置$0$，即可最小化差值</li>
+</ul>
+<p>这样一来，考虑的思路有了，该怎么实现呢？</p>
+<p>难点在于第二种方式的“数$p$的上几位中最接近当前位置的$0$的位置，变成$1$”中的这个$0$的位置该怎么找到？赛时脑子转不动了……直接暴力！不想了！二进制枚举才32次，直接$32 * 32$的复杂度，考虑无论是$p$或者$q$，都把他们任何位置可能的第二种靠近方法计算出来，再全局取最小值即可</p>
+<p>到这里其实可以直接上代码了……再稍微解释下我的代码思路（可结合下面代码看）</p>
+<ul>
+<li><p>先换位，使得$y$始终大于$x$，方便后续二进制枚举判断</p>
+</li>
+<li><p>外层二进制枚举的作用其实就是维护$q$始终朝着与$y$值相等的值变化，维护所有二进制位中$y$为$0$的位置，都让$qq$在$q$的基础上，按照第二种靠近方法变大。</p>
+</li>
+<li><p>然后进入内层二进制枚举，考虑让所有$pp$按照第二种靠近方法变大的值放入数组，最后再把内层循环结束的$pp$，也就是按照第一种变小的靠近方法的数也放入数组</p>
+</li>
+<li><p>排序，最后得出的就是当前$qq$与最优的$pp$所构成的答案</p>
+</li>
+<li><p>维护全局最优答案即可，最后记得交换回来</p>
+</li>
+</ul>
+<p>有点啰嗦了……暴力方法应该不是正解，但还是希望对你有帮助</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">using</span> ll = <span class="type">long</span> <span class="type">long</span>;</span><br><span class="line"><span class="keyword">using</span> arr2 = array&lt;<span class="type">int</span>, <span class="number">2</span>&gt;;</span><br><span class="line"><span class="keyword">using</span> arr3 = array&lt;<span class="type">int</span>, <span class="number">3</span>&gt;;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = (<span class="type">int</span>)<span class="number">2e5</span> + <span class="number">9</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> M = (<span class="type">int</span>)<span class="number">1e5</span> + <span class="number">9</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> mod = <span class="number">998244353</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> x, y;</span><br><span class="line">    cin &gt;&gt; x &gt;&gt; y;</span><br><span class="line">    <span class="keyword">if</span> ((x &amp; y) == <span class="number">0</span>) &#123;</span><br><span class="line">        cout &lt;&lt; x &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; y &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> ans1 = <span class="number">0</span>, ans2 = <span class="number">0</span>;</span><br><span class="line">    <span class="type">bool</span> f = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (x &gt; y) &#123;</span><br><span class="line">        f = <span class="number">1</span>;</span><br><span class="line">        <span class="built_in">swap</span>(x, y);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> p = <span class="number">0</span>, q = <span class="number">0</span>;</span><br><span class="line">    <span class="type">bool</span> ff = <span class="number">0</span>, fff = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">auto</span> cmp = [&amp;] (<span class="type">int</span> a, <span class="type">int</span> b) -&gt; <span class="type">bool</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">abs</span>(a - x) &lt; <span class="built_in">abs</span>(b - x);</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="type">int</span> mn = <span class="number">1e18</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">31</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (y &amp; (<span class="number">1</span> &lt;&lt; i)) &#123;</span><br><span class="line">            vector&lt;<span class="type">int</span>&gt; b;</span><br><span class="line">            q += (<span class="number">1</span> &lt;&lt; i);</span><br><span class="line">            <span class="type">int</span> qq = q;</span><br><span class="line">            <span class="type">int</span> pp = <span class="number">0</span>;</span><br><span class="line">            fff = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">31</span>; j &gt;= <span class="number">0</span>; j--) &#123;</span><br><span class="line">                <span class="keyword">if</span> (qq &amp; (<span class="number">1</span> &lt;&lt; j)) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (x &amp; (<span class="number">1</span> &lt;&lt; j)) &#123;</span><br><span class="line">                        fff = <span class="number">1</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">if</span> (x &amp; (<span class="number">1</span> &lt;&lt; j)) &#123;</span><br><span class="line">                        pp += (<span class="number">1</span> &lt;&lt; j);</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">else</span> &#123;</span><br><span class="line">                        <span class="keyword">if</span> (fff) &#123;</span><br><span class="line">                            pp += (<span class="number">1</span> &lt;&lt; j);</span><br><span class="line">                        &#125;</span><br><span class="line">                        <span class="keyword">else</span> b.<span class="built_in">push_back</span>(pp + (<span class="number">1</span> &lt;&lt; j));</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            b.<span class="built_in">push_back</span>(pp);</span><br><span class="line">            <span class="built_in">sort</span>(b.<span class="built_in">begin</span>(), b.<span class="built_in">end</span>(), cmp);</span><br><span class="line">            <span class="keyword">if</span> (mn &gt; <span class="built_in">abs</span>(x - b[<span class="number">0</span>]) + <span class="built_in">abs</span>(y - qq)) &#123;</span><br><span class="line">                mn = <span class="built_in">abs</span>(x - b[<span class="number">0</span>]) + <span class="built_in">abs</span>(y - qq);</span><br><span class="line">                ans1 = b[<span class="number">0</span>];</span><br><span class="line">                ans2 = qq;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; b;</span><br><span class="line">        <span class="type">int</span> qq = q + (<span class="number">1</span> &lt;&lt; i);</span><br><span class="line">        <span class="type">int</span> pp = <span class="number">0</span>;</span><br><span class="line">        fff = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">31</span>; j &gt;= <span class="number">0</span>; j--) &#123;</span><br><span class="line">            <span class="keyword">if</span> (qq &amp; (<span class="number">1</span> &lt;&lt; j)) &#123;</span><br><span class="line">                <span class="keyword">if</span> (x &amp; (<span class="number">1</span> &lt;&lt; j)) &#123;</span><br><span class="line">                    fff = <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (x &amp; (<span class="number">1</span> &lt;&lt; j)) &#123;</span><br><span class="line">                    pp += (<span class="number">1</span> &lt;&lt; j);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">if</span> (fff) &#123;</span><br><span class="line">                        pp += (<span class="number">1</span> &lt;&lt; j);</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">else</span> b.<span class="built_in">push_back</span>(pp + (<span class="number">1</span> &lt;&lt; j));</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        b.<span class="built_in">push_back</span>(pp);</span><br><span class="line">        <span class="built_in">sort</span>(b.<span class="built_in">begin</span>(), b.<span class="built_in">end</span>(), cmp);</span><br><span class="line">        <span class="keyword">if</span> (mn &gt; <span class="built_in">abs</span>(x - b[<span class="number">0</span>]) + <span class="built_in">abs</span>(y - qq)) &#123;</span><br><span class="line">            mn = <span class="built_in">abs</span>(x - b[<span class="number">0</span>]) + <span class="built_in">abs</span>(y - qq);</span><br><span class="line">            ans1 = b[<span class="number">0</span>];</span><br><span class="line">            ans2 = qq;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (f) <span class="built_in">swap</span>(ans1, ans2);</span><br><span class="line">    cout &lt;&lt; ans1 &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; ans2 &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="type">int</span> _ = <span class="number">1</span>;</span><br><span class="line">    cin &gt;&gt; _;</span><br><span class="line">    <span class="keyword">while</span>(_--) &#123;</span><br><span class="line">        <span class="built_in">solve</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</article><div class="post-copyright"><div class="copyright-cc-box"><i class="anzhiyufont anzhiyu-icon-copyright"></i></div><div class="post-copyright__author_box"><a class="post-copyright__author_img" href="/" title="头像"><img class="post-copyright__author_img_back" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/assets/%E5%A4%B4%E5%83%8F.png" title="头像" alt="头像"><img class="post-copyright__author_img_front" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/assets/%E5%A4%B4%E5%83%8F.png" title="头像" alt="头像"></a><div class="post-copyright__author_name">scandi</div><div class="post-copyright__author_desc">Yang</div></div><div class="post-copyright__post__info"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="https://blog.scandidreams.top/2026/01/30/Codeforces%20Round%201077%20(Div.%202)%E9%A2%98%E8%A7%A3/">原创</a><a class="post-copyright-title"><span onclick="rm.copyPageUrl('https://blog.scandidreams.top/2026/01/30/Codeforces%20Round%201077%20(Div.%202)%E9%A2%98%E8%A7%A3/')">Codeforces Round 1077 (Div. 2)题解</span></a></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"><div class="post-reward" onclick="anzhiyu.addRewardMask()"><div class="reward-button button--animated" title="赞赏作者"><i class="anzhiyufont anzhiyu-icon-hand-heart-fill"></i>打赏作者</div><div class="reward-main"><div class="reward-all"><span class="reward-title">感谢你赐予我前进的力量</span><ul class="reward-group"><li class="reward-item"><a href="/assets/0934e9c0c30401b75ed5c1888c09118.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/assets/0934e9c0c30401b75ed5c1888c09118.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/assets/2cf6ad1f394b2b8e1b93d21a47012a7.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/assets/2cf6ad1f394b2b8e1b93d21a47012a7.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul><a class="reward-main-btn" href="/about/#about-reward" target="_blank"><div class="reward-text">赞赏者名单</div><div class="reward-dec">因为你们的支持让我意识到写文章的价值🙏</div></a></div></div></div><div id="quit-box" onclick="anzhiyu.removeRewardMask()" style="display: none"></div></div><div class="shareRight"><div class="share-link mobile"><div class="share-qrcode"><div class="share-button" title="使用手机访问这篇文章"><i class="anzhiyufont anzhiyu-icon-qrcode"></i></div><div class="share-main"><div class="share-main-all"><div id="qrcode" title="https://blog.scandidreams.top/2026/01/30/Codeforces%20Round%201077%20(Div.%202)%E9%A2%98%E8%A7%A3/"></div><div class="reward-dec">使用手机访问这篇文章</div></div></div></div></div><div class="share-link weibo"><a class="share-button" target="_blank" href="https://service.weibo.com/share/share.php?title=Codeforces Round 1077 (Div. 2)题解&amp;url=https://blog.scandidreams.top/2026/01/30/Codeforces%20Round%201077%20(Div.%202)%E9%A2%98%E8%A7%A3/&amp;pic=/assets/2cb79efe667b08d4b12e3b103d67653.jpg" rel="external nofollow noreferrer noopener"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a></div><script>function copyCurrentPageUrl() {
+  var currentPageUrl = window.location.href;
+  var input = document.createElement("input");
+  input.setAttribute("value", currentPageUrl);
+  document.body.appendChild(input);
+  input.select();
+  input.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  document.body.removeChild(input);
+}</script><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="copyCurrentPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://blog.scandidreams.top" target="_blank">scandi-blog</a>！</span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__tag-list"><a class="post-meta__box__tags" href="/tags/%E9%A2%98%E8%A7%A3/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>题解<span class="tagsPageCount">6</span></a></div></div></div><div class="post_share"><div class="social-share" data-image="/assets/2cb79efe667b08d4b12e3b103d67653.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"/><script src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer="defer"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/2026/01/26/Codeforces%20Round%201076%20(Div.%203)%20%E9%A2%98%E8%A7%A3/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/assets/2cb79efe667b08d4b12e3b103d67653.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Codeforces Round 1076 (Div. 3) 题解</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="anzhiyufont anzhiyu-icon-thumbs-up fa-fw" style="font-size: 1.5rem; margin-right: 4px"></i><span>喜欢这篇文章的人也看了</span></div><div class="relatedPosts-list"><div><a href="/2026/01/26/Codeforces%20Round%201076%20(Div.%203)%20%E9%A2%98%E8%A7%A3/" title="Codeforces Round 1076 (Div. 3) 题解"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/assets/2cb79efe667b08d4b12e3b103d67653.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2026-01-26</div><div class="title">Codeforces Round 1076 (Div. 3) 题解</div></div></a></div><div><a href="/2026/01/24/Codeforces%20Round%201075%20(Div.%202)%20%E9%A2%98%E8%A7%A3/" title="Codeforces Round 1075 (Div. 2) 题解"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/assets/2cb79efe667b08d4b12e3b103d67653.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2026-01-24</div><div class="title">Codeforces Round 1075 (Div. 2) 题解</div></div></a></div><div><a href="/2026/01/13/Codeforces%20Round%201072%20(Div.%203)%E9%A2%98%E8%A7%A3/" title="Codeforces Round 1072 (Div. 3) 题解"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/assets/2cb79efe667b08d4b12e3b103d67653.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2026-01-13</div><div class="title">Codeforces Round 1072 (Div. 3) 题解</div></div></a></div><div><a href="/2026/01/08/Codeforces%20Hello%202026/" title="Codeforces Hello 2026 题解 (div1 + 2)"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/assets/2cb79efe667b08d4b12e3b103d67653.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2026-01-08</div><div class="title">Codeforces Hello 2026 题解 (div1 + 2)</div></div></a></div><div><a href="/2025/12/24/Codeforces%20Round%201071%20(Div.%203)%20%E9%A2%98%E8%A7%A3/" title="Codeforces Round 1071 (Div. 3) 题解"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/assets/2cb79efe667b08d4b12e3b103d67653.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2025-12-24</div><div class="title">Codeforces Round 1071 (Div. 3) 题解</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="anzhiyufont anzhiyu-icon-comments"></i><span> 评论</span></div><div class="comment-randomInfo"><a onclick="anzhiyu.addRandomCommentInfo()" href="javascript:void(0)">匿名评论</a><a href="/privacy" style="margin-left: 4px">隐私政策</a></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div><div class="comment-barrage"></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="author-info-avatar"><img class="avatar-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/assets/%E5%A4%B4%E5%83%8F.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__description">双非24级本科计算机-----------------喜欢各种运动--------------------------喜欢吉他--------------------------------喜欢国漫--------------------------------喜欢播客--------------------------------正在参加算法竞赛以及学习csdiy 在热爱生活!在全力以赴！</div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>文章目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Codeforces-Round-1077-Div-2-%E9%A2%98%E8%A7%A3"><span class="toc-number">1.</span> <span class="toc-text">Codeforces Round 1077 (Div. 2)题解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#A-Divisible-Permutation"><span class="toc-number">1.1.</span> <span class="toc-text">A. Divisible Permutation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F%EF%BC%9A"><span class="toc-number">1.1.1.</span> <span class="toc-text">题意：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E6%9E%90%EF%BC%9A"><span class="toc-number">1.1.2.</span> <span class="toc-text">分析：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#B-Seats"><span class="toc-number">1.2.</span> <span class="toc-text">B. Seats</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F%EF%BC%9A-1"><span class="toc-number">1.2.1.</span> <span class="toc-text">题意：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E6%9E%90%EF%BC%9A-1"><span class="toc-number">1.2.2.</span> <span class="toc-text">分析：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-Restricted-Sorting"><span class="toc-number">1.3.</span> <span class="toc-text">C. Restricted Sorting</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F%EF%BC%9A-2"><span class="toc-number">1.3.1.</span> <span class="toc-text">题意：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E6%9E%90%EF%BC%9A-2"><span class="toc-number">1.3.2.</span> <span class="toc-text">分析：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#D-Shortest-Statement-Ever"><span class="toc-number">1.4.</span> <span class="toc-text">D. Shortest Statement Ever</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F%EF%BC%9A-3"><span class="toc-number">1.4.1.</span> <span class="toc-text">题意：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E6%9E%90%EF%BC%9A-3"><span class="toc-number">1.4.2.</span> <span class="toc-text">分析：</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>最近发布</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/01/30/Codeforces%20Round%201077%20(Div.%202)%E9%A2%98%E8%A7%A3/" title="Codeforces Round 1077 (Div. 2)题解"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/assets/2cb79efe667b08d4b12e3b103d67653.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Codeforces Round 1077 (Div. 2)题解"/></a><div class="content"><a class="title" href="/2026/01/30/Codeforces%20Round%201077%20(Div.%202)%E9%A2%98%E8%A7%A3/" title="Codeforces Round 1077 (Div. 2)题解">Codeforces Round 1077 (Div. 2)题解</a><time datetime="2026-01-30T00:00:00.000Z" title="发表于 2026-01-30 00:00:00">2026-01-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/26/Codeforces%20Round%201076%20(Div.%203)%20%E9%A2%98%E8%A7%A3/" title="Codeforces Round 1076 (Div. 3) 题解"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/assets/2cb79efe667b08d4b12e3b103d67653.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Codeforces Round 1076 (Div. 3) 题解"/></a><div class="content"><a class="title" href="/2026/01/26/Codeforces%20Round%201076%20(Div.%203)%20%E9%A2%98%E8%A7%A3/" title="Codeforces Round 1076 (Div. 3) 题解">Codeforces Round 1076 (Div. 3) 题解</a><time datetime="2026-01-26T00:00:00.000Z" title="发表于 2026-01-26 00:00:00">2026-01-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/24/Codeforces%20Round%201075%20(Div.%202)%20%E9%A2%98%E8%A7%A3/" title="Codeforces Round 1075 (Div. 2) 题解"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/assets/2cb79efe667b08d4b12e3b103d67653.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Codeforces Round 1075 (Div. 2) 题解"/></a><div class="content"><a class="title" href="/2026/01/24/Codeforces%20Round%201075%20(Div.%202)%20%E9%A2%98%E8%A7%A3/" title="Codeforces Round 1075 (Div. 2) 题解">Codeforces Round 1075 (Div. 2) 题解</a><time datetime="2026-01-24T00:00:00.000Z" title="发表于 2026-01-24 00:00:00">2026-01-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/13/Codeforces%20Round%201072%20(Div.%203)%E9%A2%98%E8%A7%A3/" title="Codeforces Round 1072 (Div. 3) 题解"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/assets/2cb79efe667b08d4b12e3b103d67653.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Codeforces Round 1072 (Div. 3) 题解"/></a><div class="content"><a class="title" href="/2026/01/13/Codeforces%20Round%201072%20(Div.%203)%E9%A2%98%E8%A7%A3/" title="Codeforces Round 1072 (Div. 3) 题解">Codeforces Round 1072 (Div. 3) 题解</a><time datetime="2026-01-13T00:00:00.000Z" title="发表于 2026-01-13 00:00:00">2026-01-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/08/Codeforces%20Hello%202026/" title="Codeforces Hello 2026 题解 (div1 + 2)"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/assets/2cb79efe667b08d4b12e3b103d67653.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Codeforces Hello 2026 题解 (div1 + 2)"/></a><div class="content"><a class="title" href="/2026/01/08/Codeforces%20Hello%202026/" title="Codeforces Hello 2026 题解 (div1 + 2)">Codeforces Hello 2026 题解 (div1 + 2)</a><time datetime="2026-01-08T00:00:00.000Z" title="发表于 2026-01-08 00:00:00">2026-01-08</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2025 - 2026 By scandi</div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/archives/" title="archive"><div class="headline">文章</div><div class="length-num">53</div></a><a href="/tags/" title="tag"><div class="headline">标签</div><div class="length-num">12</div></a><a href="/categories/" title="category"><div class="headline">分类</div><div class="length-num">3</div></a></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="显示模式"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>显示模式</span></a></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://hexo.anheyu.com/" title="博客"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="data:image/vnd.microsoft.icon;base64,AAABAAEAICAAAAEAIACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFiL/0BYif+AV4r/v1eK//9Xiv//V4r//1eK/79Xiv+/WIn/gFiL/0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFiJ/4BXiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK/79Yi/9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFiL/0BXiv+/V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv+/WIv/QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYif+AV4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9MgPj/V4r//1eK//9Xiv//V4r//1eK//9Xiv//WIv/QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWIv/QFeK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//y1k4v9MgPj/V4r//1eK//9Cd/D/OG7p/1eK//9Xiv//WIn/gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFiL/0BXiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//TID4/1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//WIv/QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAV4r/v1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//TID4/1eK//9MgPj/OG7p/1eK//9Xiv//AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFiJ/4BXiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//0yA+P8tZOL/TID4/1eK//9Cd/D/V4r//1eK//9Yif+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAV4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//0yA+P9Xiv//V4r//1eK//9Xiv//V4r//1eK//8AAAAAAAAAAAAAAAAAAAAAAAAAAFiL/0BXiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1iJ/4AAAAAAAAAAAAAAAAAAAAAAV4r/v1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//0yA+P9Cd/D/V4r//1eK//9Xiv//WIn/gAAAAAAAAAAAAAAAAAAAAABXiv//V4r//4Gn//+rxf//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//TID4/0J38P9Xiv//V4r//1eK//9Xiv//AAAAAAAAAAAAAAAAAAAAAFeK//+Bp////////9Xi//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//8AAAAAAAAAAAAAAABYi/9AV4r//4Gn////////1eL//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//wAAAAAAAAAAAAAAAFiL/0BXiv//gaf////////V4v//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//WIv/QAAAAAAAAAAAAAAAAFeK//+Bp/////////////9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//8AAAAAAAAAAAAAAAAAAAAAV4r//1eK/////////////1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//wAAAAAAAAAAAAAAAAAAAABXiv+/V4r//9Xi////////gaf//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv+/AAAAAAAAAAAAAAAAAAAAAFiJ/4BXiv//gaf////////V4v//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1iL/0AAAAAAAAAAAAAAAAAAAAAAAAAAAFeK//9Xiv//1eL///////+rxf//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//WIv/QAAAAAAAAAAAAAAAAAAAAAAAAAAAWIn/gFeK//+Bp/////////////9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK/78AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAV4r//1eK//+rxf//gaf//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//WIv/QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYif+AV4r//1eK//9Xiv//q8X///////9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1iJ/4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYif+AV4r//1eK//+rxf//1eL//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Ma6//UnvX/1eK//9Xiv//V4r//1eK//9cq8KgZNtoQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYif+AV4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//R1yI/0JNYP9HXIj/V4r//16ztP9k22n/ZNtp/2Tbaf9k22n/ZNtpv2TbaEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYif+AV4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9HXIj/SmSb/0dcdv9k22n/ZNtp/2Tbaf9k22n/ZNtp/2Tbaf9k22n/ZNtqgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYi/9AV4r/v1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1eK//9Xiv//R1yI/099eeBk22n/ZNtp/2Tbaf9k22n/ZNtp/2TbaoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWIv/QFeK/79Xiv+/V4r//1eK//9Xiv//V4r//1eK//9Xiv//V4r//1iJ/4BYif+AQU1gv0lpYaBk22hAZNtqgGTbaoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYi/9AWIv/QFiL/0BYi/9AWIv/QFiL/0AAAAAAAAAAAAAAAABETGBAQk1g/0RMYEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBTWC/Qk1g/0RMYEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAERMYEBCTWD/QU1gvwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEFNYL9CTmCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/+AH//+AAf/+AAB//AAAP/gAAB/wAAAP8AAAD+AAAAfgAAAHwAAAA8AAAAPAAAADwAAAA4AAAAOAAAABwAAAA8AAAAPAAAADwAAAA+AAAAPgAAAH8AAAB/AAAA/4AAAP/AAAA/4AAAP/AAAH/8AAH//4HH////4////+P////z8=" alt="博客"/><span class="back-menu-item-text">博客</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://image.anheyu.com/" title="安知鱼图床"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://image.anheyu.com/favicon.ico" alt="安知鱼图床"/><span class="back-menu-item-text">安知鱼图床</span></a></div></div></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 文章总览</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/link/"><span> 友链</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/comments/"><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 认识我</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于我</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/essay/"><i class="anzhiyufont anzhiyu-icon-lightbulb faa-tada" style="font-size: 0.9em;"></i><span> 关于博客</span></a></li><li><a class="site-page child faa-parent animated-hover" href="javascript:toRandomPost()"><i class="anzhiyufont anzhiyu-icon-shoe-prints1 faa-tada" style="font-size: 0.9em;"></i><span> 随便逛逛</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/STL/" style="font-size: 0.88rem;">STL<sup>2</sup></a><a href="/tags/c/" style="font-size: 0.88rem;">c++<sup>3</sup></a><a href="/tags/csapp/" style="font-size: 0.88rem;">csapp<sup>1</sup></a><a href="/tags/%E4%BC%A0%E7%BB%9F%E7%AE%97%E6%B3%95/" style="font-size: 0.88rem;">传统算法<sup>14</sup></a><a href="/tags/%E4%BD%9C%E4%B8%9A/" style="font-size: 0.88rem;">作业<sup>1</sup></a><a href="/tags/%E5%88%B7%E8%AF%BE/" style="font-size: 0.88rem;">刷课<sup>2</sup></a><a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 0.88rem;">博客搭建<sup>1</sup></a><a href="/tags/%E6%8A%A5%E9%94%99/" style="font-size: 0.88rem;">报错<sup>1</sup></a><a href="/tags/%E6%8F%92%E4%BB%B6/" style="font-size: 0.88rem;">插件<sup>1</sup></a><a href="/tags/%E7%94%9F%E6%B4%BB/" style="font-size: 0.88rem;">生活<sup>16</sup></a><a href="/tags/%E8%A7%82%E7%82%B9/" style="font-size: 0.88rem;">观点<sup>5</sup></a><a href="/tags/%E9%A2%98%E8%A7%A3/" style="font-size: 0.88rem;">题解<sup>6</sup></a></div></div><hr/></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="anzhiyufont anzhiyu-icon-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="nav-music"><a id="nav-music-hoverTips" onclick="anzhiyu.musicToggle()" accesskey="m">播放音乐</a><div id="console-music-bg"></div><meting-js id="8152976493" server="netease" type="playlist" mutex="true" preload="none" theme="var(--anzhiyu-main)" data-lrctype="0" order="random" volume="0.7"></meting-js></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://y.qq.com/n/ryqq/playlist/8802438608&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.umd.js"></script><script src="https://cdn.cbd.int/instant.page@5.2.0/instantpage.js" type="module"></script><script src="https://cdn.cbd.int/vanilla-lazyload@17.8.5/dist/lazyload.iife.min.js"></script><script src="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.js"></script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script>// 消除控制台打印
+var HoldLog = console.log;
+console.log = function () {};
+let now1 = new Date();
+queueMicrotask(() => {
+  const Log = function () {
+    HoldLog.apply(console, arguments);
+  }; //在恢复前输出日志
+  const grt = new Date("02/16/2025 00:00:00"); //此处修改你的建站时间或者网站上线时间
+  now1.setTime(now1.getTime() + 250);
+  const days = (now1 - grt) / 1000 / 60 / 60 / 24;
+  const dnum = Math.floor(days);
+  const ascll = [
+    `欢迎使用安知鱼!`,
+    `生活明朗, 万物可爱`,
+    `
+        
+       █████╗ ███╗   ██╗███████╗██╗  ██╗██╗██╗   ██╗██╗   ██╗
+      ██╔══██╗████╗  ██║╚══███╔╝██║  ██║██║╚██╗ ██╔╝██║   ██║
+      ███████║██╔██╗ ██║  ███╔╝ ███████║██║ ╚████╔╝ ██║   ██║
+      ██╔══██║██║╚██╗██║ ███╔╝  ██╔══██║██║  ╚██╔╝  ██║   ██║
+      ██║  ██║██║ ╚████║███████╗██║  ██║██║   ██║   ╚██████╔╝
+      ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝    ╚═════╝
+        
+        `,
+    "已上线",
+    dnum,
+    "天",
+    "©2025 By 安知鱼 V1.6.14",
+  ];
+  const ascll2 = [`NCC2-036`, `调用前置摄像头拍照成功，识别为【小笨蛋】.`, `Photo captured: `, `🤪`];
+
+  setTimeout(
+    Log.bind(
+      console,
+      `\n%c${ascll[0]} %c ${ascll[1]} %c ${ascll[2]} %c${ascll[3]}%c ${ascll[4]}%c ${ascll[5]}\n\n%c ${ascll[6]}\n`,
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      ""
+    )
+  );
+  setTimeout(
+    Log.bind(
+      console,
+      `%c ${ascll2[0]} %c ${ascll2[1]} %c \n${ascll2[2]} %c\n${ascll2[3]}\n`,
+      "color:white; background-color:#4fd953",
+      "",
+      "",
+      'background:url("https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/tinggge.gif") no-repeat;font-size:450%'
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c WELCOME %c 你好，小笨蛋.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(
+      console,
+      "%c ⚡ Powered by 安知鱼 %c 你正在访问 scandi 的博客.",
+      "color:white; background-color:#f0ad4e",
+      ""
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c W23-12 %c 你已打开控制台.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(console, "%c S013-782 %c 你现在正处于监控中.", "color:white; background-color:#d9534f", "")
+  );
+});</script><script async src="/anzhiyu/random.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.cbd.int/mathjax@3.2.2/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script><script>(() => {
+  const initValine = () => {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'NZajgFTDyS8AoMTVIQEEiCub-gzGzoHsz',
+      appKey: 'qS494ae486R4qoq24TQL7f9J',
+      avatar: 'mp',
+      serverURLs: '',
+      emojiMaps: {"tv_doge":"6ea59c827c414b4a2955fe79e0f6fd3dcd515e24.png","tv_亲亲":"a8111ad55953ef5e3be3327ef94eb4a39d535d06.png","tv_偷笑":"bb690d4107620f1c15cff29509db529a73aee261.png","tv_再见":"180129b8ea851044ce71caf55cc8ce44bd4a4fc8.png","tv_冷漠":"b9cbc755c2b3ee43be07ca13de84e5b699a3f101.png","tv_发怒":"34ba3cd204d5b05fec70ce08fa9fa0dd612409ff.png","tv_发财":"34db290afd2963723c6eb3c4560667db7253a21a.png","tv_可爱":"9e55fd9b500ac4b96613539f1ce2f9499e314ed9.png","tv_吐血":"09dd16a7aa59b77baa1155d47484409624470c77.png","tv_呆":"fe1179ebaa191569b0d31cecafe7a2cd1c951c9d.png","tv_呕吐":"9f996894a39e282ccf5e66856af49483f81870f3.png","tv_困":"241ee304e44c0af029adceb294399391e4737ef2.png","tv_坏笑":"1f0b87f731a671079842116e0991c91c2c88645a.png","tv_大佬":"093c1e2c490161aca397afc45573c877cdead616.png","tv_大哭":"23269aeb35f99daee28dda129676f6e9ea87934f.png","tv_委屈":"d04dba7b5465779e9755d2ab6f0a897b9b33bb77.png","tv_害羞":"a37683fb5642fa3ddfc7f4e5525fd13e42a2bdb1.png","tv_尴尬":"7cfa62dafc59798a3d3fb262d421eeeff166cfa4.png","tv_微笑":"70dc5c7b56f93eb61bddba11e28fb1d18fddcd4c.png","tv_思考":"90cf159733e558137ed20aa04d09964436f618a1.png","tv_惊吓":"0d15c7e2ee58e935adc6a7193ee042388adc22af.png"},
+      path: window.location.pathname,
+      visitor: true
+    }, null))
+  }
+
+  const loadValine = async () => {
+    if (typeof Valine === 'function') initValine()
+    else {
+      await getScript('https://cdn.cbd.int/valine@1.5.1/dist/Valine.min.js')
+      initValine()
+    }
+  }
+
+  if ('Valine' === 'Valine' || !true) {
+    if (true) anzhiyu.loadComment(document.getElementById('vcomment'),loadValine)
+    else setTimeout(loadValine, 0)
+  } else {
+    window.loadOtherComment = loadValine
+  }
+})()</script><input type="hidden" name="page-type" id="page-type" value="post"></div><script src="https://cdn.cbd.int/blueimp-md5@2.19.0/js/md5.min.js"></script><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const getIcon = (icon, mail) => {
+    if (icon) return icon
+    let defaultIcon = '?d=mp'
+    let iconUrl = `https://gravatar.loli.net/avatar/${md5(mail.toLowerCase()) + defaultIcon}`
+    return iconUrl
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'data-lazy-src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'></a>`
+        }
+
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}' title='${array[i].content}'>${array[i].content}</a>
+        <div class='name'><span>${array[i].nick} / </span><time datetime="${array[i].date}">${anzhiyu.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom && ($dom.innerHTML= result)
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const getComment = () => {
+    const serverURL = 'https://NZajgFTD.api.lncldglobal.com'
+
+    var settings = {
+      "method": "GET",
+      "headers": {
+        "X-LC-Id": 'NZajgFTDyS8AoMTVIQEEiCub-gzGzoHsz',
+        "X-LC-Key": 'qS494ae486R4qoq24TQL7f9J',
+        "Content-Type": "application/json"
+      },
+    }
+
+    fetch(`${serverURL}/1.1/classes/Comment?limit=6&order=-createdAt`,settings)
+      .then(response => response.json())
+      .then(data => {
+        const valineArray = data.results.map(function (e) {
+          return {
+            'avatar': getIcon(e.QQAvatar, e.mail),
+            'content': changeContent(e.comment),
+            'nick': e.nick,
+            'url': e.url + '#' + e.objectId,
+            'date': e.updatedAt,
+          }
+        })
+        saveToLocal.set('valine-newest-comments', JSON.stringify(valineArray), 10/(60*24))
+        generateHtml(valineArray)
+      }).catch(e => {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.textContent= "无法获取评论，请确认相关配置是否正确"
+      }) 
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('valine-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><script>var visitorMail = "";
+</script><script async data-pjax src="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/waterfall/waterfall.js"></script><script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/qrcodejs/1.0.0/qrcode.min.js"></script><script src="/js/anzhiyu/right_click_menu.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.9/icon/ali_iconfont_css.css"><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="true" src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/dist/canvas-nest.min.js"></script><script id="click-heart" src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/dist/click-heart.min.js" async="async" mobile="true"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.cbd.int/anzhiyu-blog-static@1.0.1/js/APlayer.min.js"></script><script src="https://cdn.cbd.int/hexo-anzhiyu-music@1.0.1/assets/js/Meting2.min.js"></script><script src="https://cdn.cbd.int/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  anzhiyu.removeGlobalFnEvent('pjax')
+  anzhiyu.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script charset="UTF-8" src="https://cdn.cbd.int/anzhiyu-theme-static@1.1.5/accesskey/accesskey.js"></script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div></body></html>
